@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kafli 4 Krosstöflur | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)</title>
+  <meta name="description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kafli 4 Krosstöflur | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kafli 4 Krosstöflur | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)" />
+  
+  <meta name="twitter:description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  
+
+<meta name="author" content="Anton Örn Karlsson" />
+
+
+<meta name="date" content="2020-04-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="hlutföll.html"/>
+<link rel="next" href="heimildir.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tölfræði 3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Inngangur</a></li>
+<li class="chapter" data-level="2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html"><i class="fa fa-check"></i><b>2</b> Mann-Whitney Wilcoxon próf</a><ul>
+<li class="chapter" data-level="2.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#inngangur-1"><i class="fa fa-check"></i><b>2.1</b> Inngangur</a></li>
+<li class="chapter" data-level="2.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#wilcoxon-mann-whitney-u-prófið"><i class="fa fa-check"></i><b>2.2</b> Wilcoxon Mann Whitney U prófið</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#stikalaus-próf-nonparametric-tests"><i class="fa fa-check"></i><b>2.2.1</b> Stikalaus próf (nonparametric tests)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#raðsummuprófið"><i class="fa fa-check"></i><b>2.2.2</b> Raðsummuprófið</a></li>
+<li class="chapter" data-level="2.2.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#normal-nálgun"><i class="fa fa-check"></i><b>2.2.3</b> Normal nálgun</a></li>
+<li class="chapter" data-level="2.2.4" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#tilgátuprófun-raðsummuprófins"><i class="fa fa-check"></i><b>2.2.4</b> Tilgátuprófun raðsummuprófins</a></li>
+<li class="chapter" data-level="2.2.5" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#jafnhá-gildi-í-gagnasafninu"><i class="fa fa-check"></i><b>2.2.5</b> Jafnhá gildi í gagnasafninu</a></li>
+<li class="chapter" data-level="2.2.6" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#dæmi"><i class="fa fa-check"></i><b>2.2.6</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#aðrar-aðferðir"><i class="fa fa-check"></i><b>2.3</b> Aðrar aðferðir</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#útlagar-í-gögnunum"><i class="fa fa-check"></i><b>2.3.1</b> Útlagar í gögnunum</a></li>
+<li class="chapter" data-level="2.3.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#umbreyting-gagna"><i class="fa fa-check"></i><b>2.3.2</b> Umbreyting gagna</a></li>
+<li class="chapter" data-level="2.3.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#aðrar-dreifingar"><i class="fa fa-check"></i><b>2.3.3</b> Aðrar dreifingar</a></li>
+<li class="chapter" data-level="2.3.4" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#bootstrap-eða-permutation-próf"><i class="fa fa-check"></i><b>2.3.4</b> Bootstrap eða permutation próf</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hlutföll.html"><a href="hlutföll.html"><i class="fa fa-check"></i><b>3</b> Hlutföll</a><ul>
+<li class="chapter" data-level="3.1" data-path="hlutföll.html"><a href="hlutföll.html#ályktanir-um-hlutföll"><i class="fa fa-check"></i><b>3.1</b> Ályktanir um hlutföll</a></li>
+<li class="chapter" data-level="3.2" data-path="hlutföll.html"><a href="hlutföll.html#tvíliðudreifingin"><i class="fa fa-check"></i><b>3.2</b> Tvíliðudreifingin</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-1"><i class="fa fa-check"></i><b>3.2.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="hlutföll.html"><a href="hlutföll.html#ályktanir-um-eitt-hlutfall"><i class="fa fa-check"></i><b>3.3</b> Ályktanir um eitt hlutfall</a></li>
+<li class="chapter" data-level="3.4" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil"><i class="fa fa-check"></i><b>3.4</b> Öryggisbil</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-2"><i class="fa fa-check"></i><b>3.4.1</b> Dæmi</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hlutföll.html"><a href="hlutföll.html#túlkun-öryggisbils"><i class="fa fa-check"></i><b>3.4.2</b> Túlkun öryggisbils</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil-nær-aðeins-utan-um-hluta-villunnar"><i class="fa fa-check"></i><b>3.4.3</b> Öryggisbil nær aðeins utan um hluta villunnar</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hlutföll.html"><a href="hlutföll.html#plús-fjórir-öryggisbil"><i class="fa fa-check"></i><b>3.4.4</b> Plús fjórir öryggisbil</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="hlutföll.html"><a href="hlutföll.html#marktektarpróf"><i class="fa fa-check"></i><b>3.5</b> Marktektarpróf</a></li>
+<li class="chapter" data-level="3.6" data-path="hlutföll.html"><a href="hlutföll.html#val-á-úrtaki-út-frá-öryggisbili"><i class="fa fa-check"></i><b>3.6</b> Val á úrtaki út frá öryggisbili</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-4"><i class="fa fa-check"></i><b>3.6.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="hlutföll.html"><a href="hlutföll.html#tvö-hlutföll"><i class="fa fa-check"></i><b>3.7</b> Tvö hlutföll</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="hlutföll.html"><a href="hlutföll.html#meðaltal-og-staðalfrávik"><i class="fa fa-check"></i><b>3.7.1</b> Meðaltal og staðalfrávik</a></li>
+<li class="chapter" data-level="3.7.2" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil-1"><i class="fa fa-check"></i><b>3.7.2</b> Öryggisbil</a></li>
+<li class="chapter" data-level="3.7.3" data-path="hlutföll.html"><a href="hlutföll.html#marktektarpróf-1"><i class="fa fa-check"></i><b>3.7.3</b> Marktektarpróf</a></li>
+<li class="chapter" data-level="3.7.4" data-path="hlutföll.html"><a href="hlutföll.html#úrtaksstærð"><i class="fa fa-check"></i><b>3.7.4</b> Úrtaksstærð</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="hlutföll.html"><a href="hlutföll.html#hlutfallsleg-áhætta"><i class="fa fa-check"></i><b>3.8</b> Hlutfallsleg áhætta</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="krosstöflur.html"><a href="krosstöflur.html"><i class="fa fa-check"></i><b>4</b> Krosstöflur</a><ul>
+<li class="chapter" data-level="4.1" data-path="krosstöflur.html"><a href="krosstöflur.html#helstu-hugtök"><i class="fa fa-check"></i><b>4.1</b> Helstu hugtök</a></li>
+<li class="chapter" data-level="4.2" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur-1"><i class="fa fa-check"></i><b>4.2</b> Krosstöflur</a></li>
+<li class="chapter" data-level="4.3" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---dæmi-1"><i class="fa fa-check"></i><b>4.3</b> Krosstöflur - dæmi 1</a></li>
+<li class="chapter" data-level="4.4" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---myndrænt---dæmi-1"><i class="fa fa-check"></i><b>4.4</b> Krosstöflur - myndrænt - dæmi 1</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-um-krossað-súlurit."><i class="fa fa-check"></i><b>4.4.1</b> Dæmi um krossað súlurit.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-um-mosaic-rit"><i class="fa fa-check"></i><b>4.4.2</b> Dæmi um mosaic rit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---dæmi-2"><i class="fa fa-check"></i><b>4.5</b> Krosstöflur - dæmi 2</a></li>
+<li class="chapter" data-level="4.6" data-path="krosstöflur.html"><a href="krosstöflur.html#tölfræðilega-óháðar-breytur"><i class="fa fa-check"></i><b>4.6</b> Tölfræðilega óháðar breytur</a></li>
+<li class="chapter" data-level="4.7" data-path="krosstöflur.html"><a href="krosstöflur.html#kíkvaðrat-útreikningar"><i class="fa fa-check"></i><b>4.7</b> Kíkvaðrat, útreikningar</a></li>
+<li class="chapter" data-level="4.8" data-path="krosstöflur.html"><a href="krosstöflur.html#kíkvaðrat-dæmi-1"><i class="fa fa-check"></i><b>4.8</b> Kíkvaðrat dæmi 1</a></li>
+<li class="chapter" data-level="4.9" data-path="krosstöflur.html"><a href="krosstöflur.html#forsendur-kí-kvaðrats"><i class="fa fa-check"></i><b>4.9</b> Forsendur kí kvaðrats</a></li>
+<li class="chapter" data-level="4.10" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-dæmi-2"><i class="fa fa-check"></i><b>4.10</b> Kí-kvaðrat dæmi 2</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-7"><i class="fa fa-check"></i><b>4.10.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="krosstöflur.html"><a href="krosstöflur.html#sambandið-milli-kí-og-z"><i class="fa fa-check"></i><b>4.11</b> Sambandið milli kí og z</a></li>
+<li class="chapter" data-level="4.12" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-dreifingin"><i class="fa fa-check"></i><b>4.12</b> Kí-kvaðrat dreifingin</a></li>
+<li class="chapter" data-level="4.13" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-leif"><i class="fa fa-check"></i><b>4.13</b> Kí-kvaðrat leif</a></li>
+<li class="chapter" data-level="4.14" data-path="krosstöflur.html"><a href="krosstöflur.html#túlkun"><i class="fa fa-check"></i><b>4.14</b> Túlkun</a></li>
+<li class="chapter" data-level="4.15" data-path="krosstöflur.html"><a href="krosstöflur.html#goodness-of-fit"><i class="fa fa-check"></i><b>4.15</b> Goodness-of-fit</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="heimildir.html"><a href="heimildir.html"><i class="fa fa-check"></i>Heimildir</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="krosstöflur" class="section level1">
+<h1><span class="header-section-number">Kafli 4</span> Krosstöflur</h1>
+<div id="helstu-hugtök" class="section level2">
+<h2><span class="header-section-number">4.1</span> Helstu hugtök</h2>
+<p><strong>Flokkabreyta (categorical variable)</strong>: Breyta þar sem gildi breytunnar segir eingöngu til um það hvaða flokki viðkomandi eining tilheyrir. Ekki er hægt að raða tölugildunum í merkingarbæra röð (eins og raðbreytur) eða vinna frekar með gildi þeirra á nokkurn hátt (eins og samfelldar breytur). Yfirleitt er um að ræða breytu sem getur aðeins tekið eitt gildi af föstu mengi gilda.</p>
+<p><strong>Tvíkostabreyta (binrary variable)</strong>: Flokkabreyta sem tekur aðeins tvö gildi. Hefðbundið er að slíkar breytur taki gildin 0 og 1, þar sem einn táknar að viðkomandi hafi eiginleikann sem verið er að mæla en 0 táknar að viðkomandi hefur ekki tjéðan eiginleika. Til dæmis ef tívkosta breyta á að tákna kyn, þá getur 1 verið konur en 0 verið karlar. Þá mun meðaltal tvíkostabreytunnar vera til marks um hlutfall kvenna í gagnasafninu.</p>
+<p><strong>Krosstöflur (contingency tables)</strong>: Töflur þar sem tvær flokkabreytur (categorical variables) eru krossaðar saman til að skoða tengslin á milli þeirra. Hér göngum við út frá því að látum gildi meintrar frumbreytu skilgreina dálka töflunnar en gildi fylgibreytunnar skilgreinir raðir töflunnar.</p>
+<table>
+<caption><span id="tab:tafla1">Tafla 4.1: </span>2x2 krosstafla með tveimur tvíkostabreytum</caption>
+<thead>
+<tr class="header">
+<th align="left">Y</th>
+<th align="left">X1</th>
+<th align="left">X2</th>
+<th align="left">Samtals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Y1</td>
+<td align="left">Y1X1</td>
+<td align="left">Y1X2</td>
+<td align="left">Y1n</td>
+</tr>
+<tr class="even">
+<td align="left">Y2</td>
+<td align="left">Y2X1</td>
+<td align="left">Y2X2</td>
+<td align="left">Y2n</td>
+</tr>
+<tr class="odd">
+<td align="left">Samtals</td>
+<td align="left">X1n</td>
+<td align="left">X2n</td>
+<td align="left">n</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Hólf (cells)</strong>: Það sem taflan skiptist í. Tafla skiptist í jafnmörg hólf og er margfeldi gilda breytanna sem mynda krosstöfluna. Þannig er til dæmis 2x2 tafla með 4 hólf en 2x3 tafla er með 6 hólf.</p>
+<p><strong>Sameiginleg dreifing (joint distribution)</strong>: Hlutfallið í hverju hólfi töflunnar, reiknað af heildarfjölda staka töflunnar. Þá erum við að skoða sameiginlega dreifingu breytanna tveggja sem eru í töflunni, það er hlutfall YX af N. Þá getum við sagt að ákveðið hlutfall sé bæði með eiginleikann x1 og með eiginleikann y1, af heildarfjölda.</p>
+<p><strong>Jaðardreifing (marginal distribution)</strong>: Ysti dálkur og röð töflunnar þar sem fram kemur heildarfjöldi að baki hvorrar breytu fyrir sig. Er semsagt samanlögð tala allra gilda fyrir hvora breytu fyrir sig. Heildartölur fyrir hvora breytu fyrir sig. Líka hægt að segja að jaðardreifingin sé summa raða og dálka fyrir sameiginlega dreifingu (row and column totals for the joint distribution).</p>
+<p><strong>Skilyrt dreifing (conditional distribution)</strong>: Þegar við skoðum hlutfallið fyrir hvert gildi frumbreytunnar fyrir sig, þá er það kallað skilyrt dreifing. Það er, við skoðum hlutfallið sem lendir í hverju hólfi hvort dálks fyrir sig af heildarfjölda mælinga í hvorum dálki. Þá gerist það einnig að heildarhlutfallið fyrir hvorn dálk fyrir sig verður 100%. Ef við skoðum skilyrta dreifingu þá getum við skoðað tengsl milli breytanna. Ef skilyrtar dreifingar eru eins, þá eru engin tengsl milli breytanna.</p>
+<p><strong>Rauntíðni (actual frequencies)</strong>: Raunverulegu talningarnar í hólfum töflunnar.</p>
+<p><strong>Væntitíðni (expected frequencies)</strong>: Fjöldi í hverju hólfi töflunnar ef hlutföllin væru þau sömu í öllum dálkum. Það, tíðnin ef engin tengsl væru milli breytanna. Formúlan er: Væntitíðni = (heildartalning í röð*heildartalning í dálki)/n</p>
+<p>Í töflu þar sem eru tvær tvíkostabreytur þurfum við því að reikna væntitíðni fjórum sinnum.</p>
+<ul>
+<li><span class="math inline">\(\frac{Y1n*X1n}{n}\)</span></li>
+<li><span class="math inline">\(\frac{Y1n*X21n}{n}\)</span></li>
+<li><span class="math inline">\(\frac{Y2n*X1n}{n}\)</span></li>
+<li><span class="math inline">\(\frac{Y2n*X2n}{n}\)</span></li>
+</ul>
+<p><strong>Leif (residual)</strong>: Frávikið milli rauntíðni og væntitíðni. Getur bæði verið stöðluð og óstöðluð. Leifin er reiknuð fyrir hvert hólf töflunnar.</p>
+<p><strong>Kí-kvaðrat prófið</strong> veltur á samanburði rauntíðni og væntitíðni - það er, eru frávik rauðntíðni frá væntitíðni (sem er í raun núll-tengsl) nægilega mikil til að ganga út frá því að ólíklegt sé að gögnin komi úr þýði þar sem engin tengsl eru milli breytanna tveggja sem verið er að skoða.</p>
+</div>
+<div id="krosstöflur-1" class="section level2">
+<h2><span class="header-section-number">4.2</span> Krosstöflur</h2>
+<p>Krosstöflur eða two way tables eru töflur þar sem birtar eru upplýsingar fyrir tvær flokkabreytur</p>
+<p><img src="ljot_tafla.png" /></p>
+<p>Svartir hringir - margins.</p>
+<p>Rauður hringur - joint distribution, þegar hlutfallið er skoðað fyrir hverja gagnarúðu töflunnar af heild töflunnar.</p>
+<p>Þegar við skoðum hlutfallið fyrir hverja röð eða hvern dálk, þá erum við að tala um marginal distribution. Þannig getum við til dæmis svarað því hversu hátt hlutfall 5-10 ára barna fékk gildið já, og hversu hátt hlutfall þeirra sem sögðu nei voru á aldrinum 5-10 ára.</p>
+<p>Nánari skilgreininar</p>
+<blockquote>
+<p><strong>marginal distribution</strong> of a subset of a collection of random variables is the probability distribution of the variables contained in the subset
+Úr <a href="https://en.wikipedia.org/wiki/Marginal_distribution" class="uri">https://en.wikipedia.org/wiki/Marginal_distribution</a></p>
+</blockquote>
+<blockquote>
+<p>conditional distribution, which gives the probabilities contingent upon the values of the other variables.
+Úr <a href="https://en.wikipedia.org/wiki/Marginal_distribution" class="uri">https://en.wikipedia.org/wiki/Marginal_distribution</a></p>
+</blockquote>
+</div>
+<div id="krosstöflur---dæmi-1" class="section level2">
+<h2><span class="header-section-number">4.3</span> Krosstöflur - dæmi 1</h2>
+<p>Dæmið kemur úr frétt Gallup sem var birt á vef fyrirtækisins þann 22. janúar 2019: <a href="https://www.gallup.is/frettir/konur-frekar-med-hudflur-en-karlar/" class="uri">https://www.gallup.is/frettir/konur-frekar-med-hudflur-en-karlar/</a></p>
+<p>Þar er sagt frá könnun sem fyrirtækið framkvæmdi í gegnum viðhorfahóp sinn (netpanel) þar sem meðal annars var spurt hvort viðkomandi væri með húðflúr. Í töflu <a href="krosstöflur.html#tab:tafla2">4.2</a> eru svörin, umreiknuð af undirrituðum.</p>
+<p>Takið eftir því að við erum með kyn sem frumbreytu og því skilgreinir hún dálkana í töflunni.</p>
+<table>
+<caption><span id="tab:tafla2">Tafla 4.2: </span>Krosstafla, kyn og húðflúr</caption>
+<thead>
+<tr class="header">
+<th align="left">Húðflúr</th>
+<th align="left">Karlar</th>
+<th align="left">Konur</th>
+<th align="left">Samtals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Já</td>
+<td align="left">121</td>
+<td align="left">165</td>
+<td align="left">286</td>
+</tr>
+<tr class="even">
+<td align="left">Nei</td>
+<td align="left">593</td>
+<td align="left">523</td>
+<td align="left">1116</td>
+</tr>
+<tr class="odd">
+<td align="left">Samtals</td>
+<td align="left">714</td>
+<td align="left">688</td>
+<td align="left">1402</td>
+</tr>
+</tbody>
+</table>
+<p>Nokkrar spurningar:</p>
+<ul>
+<li>Hver eru jaðardreifing (margins; marginal totals) töflunnar?
+<ul>
+<li>Semsagt heildarfjöldi karla,</li>
+<li>Heildarfjöldi kvenna</li>
+<li>Fjöldi með flúr</li>
+<li>Fjöldi án flúrs</li>
+</ul></li>
+<li>Reiknið joint distribution fyrir töfluna
+<ul>
+<li>Hlutfall af hverri talningarsellu af heldarsummu eininga í töflunni</li>
+<li>Kallað joint vegna þess að hlutfallið segir til um líkurnar á því að fá bæði tiltekið gildi á breytu 1 og á breytu 2.</li>
+</ul></li>
+<li>Reiknið loks conditional distribution fyrir töfluna.
+<ul>
+<li>Þar sem húðflúr er conditional á kyni</li>
+<li><span class="math inline">\(P(A|B) = \frac{P(A∩B)}{P(B)}\)</span>
+<ul>
+<li>Þar sem <span class="math inline">\((A∩B)\)</span> eru líkurnar á því að atburður tilheyri bæði A og B</li>
+<li>og þar sem <span class="math inline">\(P(B)\)</span> eru líkurnar á atburði B</li>
+<li>Við getum sett þetta fram á eftirfarandi hátt:
+<ul>
+<li><span class="math inline">\(P(Tattoo|Female) = \frac{P(Tattoo∩Female)}{P(Female)}\)</span></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Líkurnar á því að atburður A gerist, að því gefnu að atburður B hafi þegar orðið er táknað með P(A|B)
+<ul>
+<li>Conditional probability gefur okkur meiri upplýsingar heldur en aðeins að vita A
+<ul>
+<li>P(A)=286/1402</li>
+<li>P(A|B)=165/688</li>
+</ul></li>
+</ul></li>
+<li>Getum hugsað þetta svona:
+<ul>
+<li>Við viljum geta spáð fyrir um hvort tiltekinn einstaklingur er með tattoo eða ekki.</li>
+<li>Án þess að vita neitt meira, þá segum við að líkurnar séu 20,4%</li>
+<li>En, ef við vitum að einstaklingurinn er kona, þá hækka líkurnar hjá okkur í 24,0%</li>
+<li>Það sem þetta segir okkur er að við erum með dependent events -&gt; háðir atburðir, þar sem það að við vitum eitthvað um kyn einstaklingsins breytti líkunum á því að viðkomandi er með tattoo. Ef líkurnar hefðu ekki breyst neitt, þá væri um að ræða óháða atburði.</li>
+</ul></li>
+</ul>
+<table>
+<caption><span id="tab:tafla3">Tafla 4.3: </span>Krosstafla, kyn og húðflúr, joint distribution</caption>
+<thead>
+<tr class="header">
+<th align="left">Húðflúr</th>
+<th align="left">Karlar</th>
+<th align="left">Konur</th>
+<th align="left">Samtals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Já</td>
+<td align="left">8.6%</td>
+<td align="left">11.8%</td>
+<td align="left">20.4%</td>
+</tr>
+<tr class="even">
+<td align="left">Nei</td>
+<td align="left">42.3%</td>
+<td align="left">37.3%</td>
+<td align="left">79.6%</td>
+</tr>
+<tr class="odd">
+<td align="left">Samtals</td>
+<td align="left">50.9%</td>
+<td align="left">49.1</td>
+<td align="left">100%</td>
+</tr>
+</tbody>
+</table>
+<p>Hvað segir taflan með conditional distribution okkur (<a href="krosstöflur.html#tab:tafla4">4.4</a>) Að 16,9% karla var með húðflúr en 24% kvenna.</p>
+<p>Samtals dálkurinn segir okkur að við erum núna að vinna með hlutfallstölur fyrir karla annars vegar, og konur hins vegar.</p>
+<table>
+<caption><span id="tab:tafla4">Tafla 4.4: </span>Krosstafla, kyn og húðflúr, conditional distribution</caption>
+<thead>
+<tr class="header">
+<th align="left">Húðflúr</th>
+<th align="left">Karlar</th>
+<th align="left">Konur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Já</td>
+<td align="left">16.9%</td>
+<td align="left">24.0%</td>
+</tr>
+<tr class="even">
+<td align="left">Nei</td>
+<td align="left">83.1%</td>
+<td align="left">76.0%</td>
+</tr>
+<tr class="odd">
+<td align="left">Samtals</td>
+<td align="left">100%</td>
+<td align="left">100%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="krosstöflur---myndrænt---dæmi-1" class="section level2">
+<h2><span class="header-section-number">4.4</span> Krosstöflur - myndrænt - dæmi 1</h2>
+<p>Tvær algengar leiðir til að skoða krosstöflur myndrænt eru 1) súlurit (bar chart eða bar graph); 2) Mosaic rit.</p>
+<div id="dæmi-um-krossað-súlurit." class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Dæmi um krossað súlurit.</h3>
+<p><img src="glosur_aok_files/figure-html/s%C3%BAlurit1-1.png" width="672" /></p>
+<p><img src="glosur_aok_files/figure-html/s%C3%BAlurit2-1.png" width="672" /></p>
+</div>
+<div id="dæmi-um-mosaic-rit" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Dæmi um mosaic rit</h3>
+<p>Mosaic rit verða áhugaverðari eftir því sem breyturnar verða margskiptari.</p>
+<p><img src="glosur_aok_files/figure-html/mosaicrit-1.png" width="672" /></p>
+</div>
+</div>
+<div id="krosstöflur---dæmi-2" class="section level2">
+<h2><span class="header-section-number">4.5</span> Krosstöflur - dæmi 2</h2>
+<p>Við tökum annað dæmi. Hér eru við með gögn frá bandarísku vinnumálatölfræðistofnunni (U.S. Bureau of Labour Statistics). Í gögnunum má sjá fjölda eftir menntunarstigi og stöðu á vinnumarkaði fyrir alla bandaríkjamenn sem eru 25 ára eða eldri fyrir fjórða ársfjórðung 2019. Í töflu <a href="krosstöflur.html#tab:tafla5">4.5</a> sjáum við gögnin. Takið eftir að tölugildi fyrir þá sem hafa ekkert háskólapróf og eru utan vinnumarkaðar er ekki gefið upp af eiganda gagnanna og er því metið (ónákvæmlega) af undirrituðum. Allar tölur eru í þúsundum.</p>
+<p>Hér erum við með tvær þrískiptar breytur</p>
+<ul>
+<li>menntun
+<ul>
+<li>ekkert háskólapróf</li>
+<li>bakkalársgráða</li>
+<li>framhaldsgráða</li>
+</ul></li>
+<li>Vinnumarkaðsstaða
+<ul>
+<li>Starfandi</li>
+<li>Atvinnulausir</li>
+<li>Utan vinnumarkaðar</li>
+</ul></li>
+</ul>
+<table>
+<caption><span id="tab:tafla5">Tafla 4.5: </span>Krosstafla, vinnumarkaðsstaða eftir menntunarstigi</caption>
+<thead>
+<tr class="header">
+<th align="left">Menntun</th>
+<th align="left">Starfandi</th>
+<th align="left">Atvinnulausir</th>
+<th align="left">Utan.vinnumarkaðar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Ekkert háskólapróf</td>
+<td align="left">34908</td>
+<td align="left">1292</td>
+<td align="left">26102</td>
+</tr>
+<tr class="even">
+<td align="left">Bakkalárspróf</td>
+<td align="left">36511</td>
+<td align="left">725</td>
+<td align="left">13403</td>
+</tr>
+<tr class="odd">
+<td align="left">Framhaldspróf</td>
+<td align="left">22369</td>
+<td align="left">390</td>
+<td align="left">7661</td>
+</tr>
+</tbody>
+</table>
+<p>Verkefnið er:</p>
+<ol style="list-style-type: decimal">
+<li>Hvernig myndum við setja upp töflu með þessum upplýsingum?</li>
+<li>Setjum gildin inn í töfluna (getum til dæmis notað excel til þess)</li>
+<li>Hver er jaðardreifing töflunnar?
+<ol style="list-style-type: lower-alpha">
+<li>Hvernig túlkum við hana?</li>
+<li>Er eitthvað sérstaklega áhugavert þarna að sjá?</li>
+</ol></li>
+<li>Hver er sameiginleg dreifing breytanna?
+<ol style="list-style-type: lower-alpha">
+<li>Hvernig túlkum við hana?</li>
+<li>Er eitthvað sérstaklega áhugavert þarna að sjá?</li>
+</ol></li>
+<li>Fyrir hvora breytuna viljum við reikna skilyrta dreifingu? Hver er skilyrt dreifing?
+<ol style="list-style-type: lower-alpha">
+<li>Hvernig túlkum við skilyrtu dreifinguna?</li>
+<li>Er eitthvað áhugavert í þessum niðurstöðum?</li>
+<li>Eru líkur á því að tengsl séu til staðar milli þessara breyta?</li>
+</ol></li>
+<li>Teiknum súlurit
+<ol style="list-style-type: lower-alpha">
+<li>Mjööööög einfalt ef við höfum sett töfluna rétt upp í excel. Og þá getum við einnig fylgt dæmi GBA eins og það er á glærunum og notað talningar í stað hlutfalla (eða prósenta).</li>
+</ol></li>
+</ol>
+</div>
+<div id="tölfræðilega-óháðar-breytur" class="section level2">
+<h2><span class="header-section-number">4.6</span> Tölfræðilega óháðar breytur</h2>
+<p>Agresti segir þetta vel:</p>
+<blockquote>
+<p>“Two categorcial variables X and Y that are both response variables are said to be statistically independent if all their joint probabilities equal the product of their marginal probabilities (pp. 28).”</p>
+</blockquote>
+<p>Við erum hins vegar oftast að hugsa þetta þannig að X er frumbreyta og Y er fylgibreyta. Þá segir Agresti:</p>
+<blockquote>
+<p>“When Y is a response variable and X is explanatory, it is more relevant to analyze the conditional distribution of Y given X. The variables are there said to be statistically independent if the true conditional distributions of Y are identical at each level of X. Statistical independence is then also referred to as homogeneity of the conditional distributions. When the variables are independent, the probability of any particular column outcome j is the same in each row (pp.28).”</p>
+</blockquote>
+<p>Einsleitni skilyrtu dreifingarinnar</p>
+<p>Hjálpar okkur að svara spurningunni hvort munur sem við sjáum á háðu hlutfalli tveggja hópa sé líklega kominn til af handahófskenndum ástæðum. Nánar til tekið, ef enginn munur er á hópunum í þýði, hversu líklegt væri að fá mun af því tagi sem við sjáum í úrtaki okkar (eða stærri).</p>
+</div>
+<div id="kíkvaðrat-útreikningar" class="section level2">
+<h2><span class="header-section-number">4.7</span> Kíkvaðrat, útreikningar</h2>
+<ol style="list-style-type: decimal">
+<li>Fyrsta skrefið er að reikna háða dreifingu miðað við rannsóknarspurninguna okkar.</li>
+<li>Reikna væntitíðni fyrir hvert hólf töflunnar
+a. Væntitíðnin segir til um hvernig tengsl breytanna myndu vera ef um væri að ræða óháðar breytur. Þess vegna sjáum við að háð hlutfall væntitíðni er alltaf það sama ef við skoðum skilyrta dreifingu væntitíðninar og ennfremur, er hún sama gildið og hlutfall jaðardreifingarinnar. Það er, við það að vita hvort einstaklingur tilheyri hópi 1 eða 2 á breytunni X hefur engin áhrif á forspá okkar um Y.
+b. Formúla fyrir væntitíðni: E = (R*C)/n
+Þar sem E er væntitíðni
+R er summan fyrir raðir töflunar
+C er summan fyrir dálka töflunnar
+n er heildarsumma töflunnar</li>
+<li>Bera saman væntigildi og raungildi og reikna kíkvaðrat gildi þar sem þessi samanburður er summaður upp fyrir alla töfluna. Hérna erum við semsagt að kanna hversu langt frá væntitíðninni raungildin í töflunni eru. Til að svara spurningunni, er líklegt að fá svona niðurstöður úr þýði þar sem engin tengsl eru milli breytanna. Þá erum við að skoða muninn á dreifingunni sem við erum með í úrtakinu á móti dreifingu þar sem engin tengsl eru til staðar.
+<ol style="list-style-type: lower-alpha">
+<li>Formúlan fyrir kíkvaðrat gildið: <span class="math inline">\(\sum=\frac{O-E^2}{E}\)</span>
+Þar sem O er rauntíðni (observed count)
+E er væntitíðni (sjá lið 1 hér að ofan)</li>
+</ol></li>
+<li>Kíkvaðrat gildið er útkoman úr lið 3</li>
+<li>Reikna frígráður samkvæmt formúlu
+<ol style="list-style-type: lower-alpha">
+<li>Formúlan fyrir frígráður kíkvaðratprófs er: df = (r - 1)(c - 1)
+Þar sem r er fjöldi raða í töflunni
+C er fjöldi dálka í töflunni</li>
+</ol></li>
+<li>Fletta upp kíkvaðratgildi í kíkvaðrat töflu út frá liðum 3 og 4. Hana má til dæmis finna í bókinni okkar eða á vefnum.<br />
+</li>
+<li>Þegar við skrifum niðurstöður kíkvaðrat prófs í niðurstöðukafla er það á þennan hátt:</li>
+</ol>
+<blockquote>
+<p>Χ2 ([df], N = [fjöldi]) = [kí], p &lt;.[líkur á þessum eða sterkari tengslum þegar engin eru til staðar í þýði]</p>
+</blockquote>
+</div>
+<div id="kíkvaðrat-dæmi-1" class="section level2">
+<h2><span class="header-section-number">4.8</span> Kíkvaðrat dæmi 1</h2>
+<p>Reiknum kíkvaðrat í höndunum fyrir tengsl kyns og húðflúrs.</p>
+<ol style="list-style-type: decimal">
+<li>Reikna væntitíðni fyrir hvert hólf töflunnar
+<ol style="list-style-type: lower-alpha">
+<li>Formúla fyrir væntitíðni: E = (R*C)/n</li>
+<li>(286*714)/1402=145,6519</li>
+<li>(286*688)/1402=140,3481</li>
+<li>(714*1116)/1402=568,3481</li>
+<li>(688*1116)/1402=547,6519</li>
+</ol></li>
+</ol>
+<table>
+<caption><span id="tab:tafla6">Tafla 4.6: </span>Væntitíðni húðflúrs og kyns</caption>
+<thead>
+<tr class="header">
+<th align="left">Flúr</th>
+<th align="left">Karlar</th>
+<th align="left">Konur</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Flúr</td>
+<td align="left">145.65</td>
+<td align="left">140.35</td>
+</tr>
+<tr class="even">
+<td align="left">Ekki flúr</td>
+<td align="left">568.35</td>
+<td align="left">547.65</td>
+</tr>
+</tbody>
+</table>
+<ol start="2" style="list-style-type: decimal">
+<li>Bera saman væntigildi og raungildi og reikna kíkvaðrat gildi þar sem þessi samanburður er summaður upp fyrir alla töfluna
+<ol style="list-style-type: lower-alpha">
+<li>Formúlan fyrir kíkvaðrat gildið: <span class="math inline">\(\sum=\frac{O-E^2}{E}\)</span></li>
+<li>((121-145,65)^2)/145,65=4,1718</li>
+<li>((165-140,35)^2)/140,35=4,3293</li>
+<li>((593-568,35)^2)/568,35=1,0691</li>
+<li>((523-547,65)^2)/547,65=1,1095</li>
+<li>4,1718+4,3293+1,0691+1,1095=10,6797</li>
+</ol></li>
+<li><p>Kíkvaðrat gildið er útkoman úr lið 2: 10,6797</p></li>
+<li>Reikna frígráður samkvæmt formúlu
+<ol style="list-style-type: lower-alpha">
+<li>Formúlan fyrir frígráður kíkvaðratprófs er: df = (r - 1)(c - 1)</li>
+<li>df = 1</li>
+</ol></li>
+<li>Fletta upp kíkvaðratgildi í kíkvaðrat töflu út frá liðum 3 og 4.
+<ol style="list-style-type: lower-alpha">
+<li>Hana má til dæmis finna í bókinni okkar eða á vefnum.</li>
+<li>Við dettum á milli 0,0025 og 0,001</li>
+<li>Samkvæmt uppflettingu í R er nákvæmt p gildi 0,001083176</li>
+</ol></li>
+<li>Þegar við skrifum niðurstöður kíkvaðrat prófs í niðurstöðukafla er það á þennan hátt:
+<ol style="list-style-type: lower-alpha">
+<li>Χ2 ([df], N = [fjöldi]) = [kí], p &lt;.[líkur á þessum eða sterkari tengslum þegar engin eru til staðar í þýði]</li>
+<li>Í okkar tilfelli væri því niðurstaðan: <span class="math inline">\(\chi^2\)</span>(1, N = 1402) = 10,7, p = 0,001</li>
+</ol></li>
+</ol>
+</div>
+<div id="forsendur-kí-kvaðrats" class="section level2">
+<h2><span class="header-section-number">4.9</span> Forsendur kí kvaðrats</h2>
+<ol style="list-style-type: decimal">
+<li>Óháðar mælingar
+<ol style="list-style-type: lower-alpha">
+<li>hvert og eitt stak mælt einu sinni</li>
+<li>hvert og eitt stak tilheyrir einum og aðeins einum hópi í gögnunum</li>
+</ol></li>
+<li>Mælingar byggjast á tíðni
+<ol style="list-style-type: lower-alpha">
+<li>t.d. ekki meðaltöl samfelldra breyta</li>
+</ol></li>
+<li>Nægilega stórt úrtak - sem þýðir að
+<ol style="list-style-type: lower-alpha">
+<li>Væntitíðni þarf að vera 1,0 eða hærri í öllum hólfum töflunnar</li>
+<li>Væntitíðni verður að vera lægri en 5 í mest 20% hólfanna
+<ol style="list-style-type: lower-roman">
+<li>Í bókinni er gengið lengra og gert ráð fyrir að í 2x2 töflum verði væntitíðni í öllum hólfum að vera 5 eða hærri</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>Hvað er til bragðs að taka ef forsendur eru ekki uppfylltar?</p>
+<ol style="list-style-type: decimal">
+<li>Ef mælingar eru ekki óháðar þá þarf annað hvort að setja upp nýja rannsókn/tilraun eða finna aðferð sem ræður við tilraunasnið af þessari tegund. Sjálfur þekki ég ekki svoleiðis aðferð.</li>
+<li>Ef mælingar byggjast ekki á tíðni eða talningum þá er nærtækast að beita t-prófi eða z-prófi, ef um er að ræða tvö meðtöl sem verið er að bera saman. Annars dreifigreiningu (ANOVA).</li>
+<li>Ef úrtakið er ekki nógu stórt gæti verið annars vegar mögulegt að:
+<ol style="list-style-type: lower-alpha">
+<li>Safna meira af gögnum úr sama þýði</li>
+<li>Sameina gildi breytunnar til að fá nægilega háa væntitíðni</li>
+<li>Fishers exact test er stundum notað þegar talningar eru mjög litlar. Það er hægt að reikna í Jasp undir log odd ratio.</li>
+</ol></li>
+</ol>
+</div>
+<div id="kí-kvaðrat-dæmi-2" class="section level2">
+<h2><span class="header-section-number">4.10</span> Kí-kvaðrat dæmi 2</h2>
+<p>Prófum að reikna kí-kvaðrat í JASP.</p>
+<blockquote>
+<p>Það er gert með því að Velja frequencies -&gt; Contingency tables -&gt; Setja viðeigandi breytur í raðir og dálka
+Þá fáum við niðurstöðurnar vinstra megin í forritið - það er, átpútið.
+Í JASP er einnig hægt að velja milli mismunandi tegundir prófa ef forsendur kí-kvaðrats eru ekki uppfylltar.</p>
+</blockquote>
+<p>Við getum slegið gögnin okkar um tengsl milli kyns og húðflúrana í töflureikni og vistað sem odt skrá.</p>
+<div class="figure">
+<img src="kyn_flur_i_toflureikni.png" alt="Gögn í töflureikni" />
+<p class="caption">Gögn í töflureikni</p>
+</div>
+<p>Svo lesum við þau gögn í JASP og reiknum kí-kvaðrat. Takið eftir að hér erum við að vinna með tilbúna krosstöflu en við gætum allt eins verið með hrágögnin. Í þeim tilvikum þurfum við ekki að hugsa um <em>counts</em> dálkinn í jasp.</p>
+<div class="figure">
+<img src="skjamynd_chisq_jasp.png" alt="Kí kvaðrat í jasp" />
+<p class="caption">Kí kvaðrat í jasp</p>
+</div>
+<div id="dæmi-7" class="section level3">
+<h3><span class="header-section-number">4.10.1</span> Dæmi</h3>
+<p>Við skulum prófa að slá neðangreinda kross-töflu í Jasp og reikna kí-kvaðrat:</p>
+<table>
+<caption><span id="tab:tafla61">Tafla 4.7: </span>Væntitíðni húðflúrs og kyns</caption>
+<thead>
+<tr class="header">
+<th align="left">Bati</th>
+<th align="left">Lyfleysa</th>
+<th align="left">Lyf</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Bati</td>
+<td align="left">8</td>
+<td align="left">14</td>
+</tr>
+<tr class="even">
+<td align="left">Enginn bati</td>
+<td align="left">7</td>
+<td align="left">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="sambandið-milli-kí-og-z" class="section level2">
+<h2><span class="header-section-number">4.11</span> Sambandið milli kí og z</h2>
+<p>Ef við horfum á aðra breytuna í töflunni okkar sem “successess” þá getum við líka reiknað z-próf, two sample z-test. Samkvæmt bókinni ættu báðar þessara aðferða (það er, kíkvaðrat og z-próf fyrir tvö hlutföll) að gefa okkur nákvæmlega sömu niðurstöðuna. Kosturinn við z-prófið er sá að þar getum við prófað einhliða og tvíhliða tilgátur. Kosturinn við kí-kvaðrat er að þar erum við ekki bundin af því að vera með tvo hópa, heldur getum reiknað niðurstöðu prófsins fyrir stærri krosstöflur en bara 2x2.</p>
+<p>Prófum það!</p>
+<p>Við höfum þegar reiknað niðurstöður fyrir það hvort munur sé milli karla og kvenna hvað varðar húðflúr:</p>
+<p><span class="math inline">\(\chi^2\)</span>(1, N = 1402) = 10,7, p = 0,001</p>
+<p>Ef við prófum að reikna z-próf fyrir tvo hópa:</p>
+<ol style="list-style-type: decimal">
+<li>Við ætlum að prófa tilgátuna að p1 = p2 (þetta er semsé núlltilgátan)</li>
+<li>Fyrst reiknum við pooled estimate fyrir common value fyrir p1 og p2
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\hat{p}=\frac{X_1+X_2}{n_1+n_2}\)</span></li>
+</ol></li>
+<li>Svo reiknum við pooled standard error
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(SE_Dp=\sqrt{\hat{p}(1-\hat{p})\frac{1}{n_1}+\frac{1}{n_2}}\)</span></li>
+</ol></li>
+<li><span class="math inline">\(z=\frac{\hat{p_1}-\hat{p_2}}{SE_Dp}\)</span></li>
+</ol>
+<p>Niðurstöður þessara æfinga eru byggðar á normal approximation og því getum við flett niðurstöðunni upp í normaldreifingartöflu.</p>
+<p>Notum sama dæmið og áðan.</p>
+<ol style="list-style-type: decimal">
+<li>P-hattur er 0,204
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\hat{p}=\frac{121+165}{714+688}\)</span></li>
+</ol></li>
+<li><span class="math inline">\(SE_Dp\)</span> er 0,0215
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(SE_Dp=\sqrt{0.204(1-0.204)\frac{1}{714}+\frac{1}{688}}\)</span></li>
+</ol></li>
+<li>Z-gildið er -3,27
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(z=\frac{0.1695-0.2398}{0.0215}\)</span></li>
+</ol></li>
+<li>Ef við flettum þessu upp í töflu með stöðluðum normalgildum þá fáum við gildið 0.9999793
+<ol style="list-style-type: lower-alpha">
+<li>Ef við vorum með tvíhliða tilgátu þá:
+<ol style="list-style-type: lower-roman">
+<li>2*pnorm(1-zgildi) = 0,001082171</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>Þannig að: 16,9% karla og 24% kvenna eru með húðflúr. Munurinn er tölfræðilega marktækur (z=-3,27, p = 0,001.</p>
+</div>
+<div id="kí-kvaðrat-dreifingin" class="section level2">
+<h2><span class="header-section-number">4.12</span> Kí-kvaðrat dreifingin</h2>
+<p>Almennt um kí-kvaðrat dreifinguna:</p>
+<ul>
+<li>Fjölskylda af dreifingum, rétt eins og t-dreifingin.<br />
+</li>
+<li>Einn parametri - frígráður. Meðtal dreifingarinnar eru frígráðurnar.</li>
+<li>Eftir því sem frígráðum fjölgar, því samhverfari verður dreifingin, sjá mynd <a href="krosstöflur.html#fig:kikv1">4.1</a>.
+<ul>
+<li>Því fleiri sem frígráður eru, þeim mun nær normaldreifingu er dreifingin.</li>
+<li>Eftir því sem k nálgast óendanleika, þeim mun meira líkist dreifingin normaldreifingu</li>
+</ul></li>
+<li>Hún er alltaf hærri en 0.</li>
+</ul>
+<p>Mikilvægt hugtak er þéttni (density). Þéttni segir til um líkindi þess að gildi tiltekinnar random breytu myndi taka ákveðið gildi úr dreifingu breytunnar. Oft er þéttni notuð til að skoða hlutfallið sem fellur undir ákveðið svæði dreifingarinnar, það er, ákveðið róf gilda. Til dæmis getum við skoðað líkindi þess að tiltekin breyta sem er normaldreifð taki gildi á bilinu -2 til +2 þar sem um er að ræða normaldreifingu með meðaltalinu 0 og staðalfrávikinu 1 &lt;- 95.4%</p>
+<ul>
+<li>En milli 0.5 og 1? Ca. 15%</li>
+<li>En milli 0 og 1? Ca. 34%</li>
+<li>En yfir 3? Ca.1%</li>
+<li>En yfir 1,96 eða undir -1,95? Ca. 5%</li>
+</ul>
+<div class="figure"><span id="fig:kikv1"></span>
+<img src="glosur_aok_files/figure-html/kikv1-1.png" alt="Kíkvaðrat dreifingin eftir fjölda frígráða" width="672" />
+<p class="caption">
+Mynd 4.1: Kíkvaðrat dreifingin eftir fjölda frígráða
+</p>
+</div>
+<p>Ef við skoðum kíkvaðrat dreifinguna fyrir mismunandi frígráður (sjá mynd <a href="krosstöflur.html#fig:kikv2">4.2</a>) þá sjáum við fljótt hversu stórt kíkvaðrat gildi úr prófinu við þurfum til að ná fram tölfræðilega marktækum tengslum breytanna.</p>
+<div class="figure"><span id="fig:kikv2"></span>
+<img src="glosur_aok_files/figure-html/kikv2-1.png" alt="Uppsöfnuð kíkvaðrat dreifing eftir fjölda frígráða" width="672" />
+<p class="caption">
+Mynd 4.2: Uppsöfnuð kíkvaðrat dreifing eftir fjölda frígráða
+</p>
+</div>
+<p>Til dæmis dugar kíkvaðrat gildi upp á 10 til að ná fram tölfræðilegri marktekt ef um er að ræða frígráður á bilinu 1 - 3. Uppfletting í kíkvaðrat töflunni (sem til dæmis má finna á innri kápu bókarinnar) staðfestir það.</p>
+<p>Til dæmis:</p>
+<ul>
+<li><span class="math inline">\(\chi^2\)</span>=10,83, með einni frígráðu gefur p-gildið 0,001</li>
+<li><span class="math inline">\(\chi^2\)</span>=9,21, með tveimur frígráðum gefur p-gildið 0,01</li>
+<li><span class="math inline">\(\chi^2\)</span>=10, með þremur frígráðum gefur p-gildið 0,01856 (gildin 7,81 gefur p=0,05 og 11,34 gefur 0,01)</li>
+</ul>
+<p>Kíkvaðrat er notað fyrir fleira en til að meta marktæk tengsl í krosstöflu. Prófið er einnig notað til að meta mátgæði líkana. Þá telst marktækt kíkvaðratpróf vera til marks um að líkanið passi ekki vel við gögnin.</p>
+<p>F-dreifingin (sem er notuð í ANOVA) dreifist einnig í samræmi við kí-kvaðrat dreifinguna, en þá er um að ræða hlutfallið á milli tveggja óháðra kíkvaðrat random breyta sem búið er að deila með frígráðum hvorrar um sig.</p>
+<p>Z- gildið í öðru veldi er jafnt og kí-kvaðrat gildið- &gt; 10,7!!</p>
+</div>
+<div id="kí-kvaðrat-leif" class="section level2">
+<h2><span class="header-section-number">4.13</span> Kí-kvaðrat leif</h2>
+<p>Leifin í kí-kvaðrat er munurinn milli raungilda og væntitíðni. Með henni er hægt að sjá hvar mest munar á milli þessara tveggja gilda - og segir þá til um hvaða hólf töflunnar hefur mest að segja fyrir niðurstöðu kíkvaðrat prófsins.</p>
+<p>Hægt er að nota leifina til að aðstoða við frekari túlkun á niðurstöðum marktæks kíkvaðrat prófs.</p>
+<p>Leifin er einfaldlega munurinn á milli raunverulegu mælingarinnar og væntitíðni fyrir hvert hólf töflunnar. Óstöðluð leif er því = O-E</p>
+<p>Stöðluð leif er fundin með því að deila í óstöðluðu leifina með kvaðratrót væntigildisins.</p>
+<ul>
+<li>Staðlaða leifin virkar eins og hver önnur stöðuluð breyta, með meðaltalið 0 og staðalfrávikið 1.<br />
+</li>
+<li>Stöðluð leif (rétt eins og leifin sjálf) er reiknuð fyrir hvert hólf töflunnar</li>
+<li>Staðlaða leifin segir okkur til um hversu mikið hvert og eitt hólf töflunnar hefur á útreikninga kí-kvaðrat gildisins.<br />
+</li>
+<li>Stöðluð leif getur til að mynda hjálpað okkur við að túlka tölfræðilega marktæk kíkvaðrat próf þar sem hún segir okkur hvaða hólf töflunnar höfðu mest áhrif á að kíkvaðrat gildið varð marktækt.</li>
+<li>Til eru ágætis þumalfingursreglur um túlkun staðlaðrar leifar:
+<ul>
+<li>Ef hún liggur utan við plús eða mínus 2 þá er hægt að ganga út frá því að viðkomandi hólf hafi mikil áhrif á niðurstöðu kíkvaðrat prófsins.</li>
+<li>Ef hún er innan plús mínus 2 þá hefur viðkomandi hólf töflunnar veik áhrif á niðurstöðu kíkvaðrat prófsins.</li>
+</ul></li>
+</ul>
+</div>
+<div id="túlkun" class="section level2">
+<h2><span class="header-section-number">4.14</span> Túlkun</h2>
+<p>Eins og við munum gengur kí-kvaðrat prófið alltaf út frá núlltilgátunni að engin tengsl séu til staðar í krosstöflunni sem við er að skoða. Marktækt próf er þá til marks um núlltilgátunni sé hafnað vegna þess að svo ólíklegt er að fá tengsl af þessum styrkleika (eða sterkari) úr þýði þar sem engin tengsl eru til staðar.
+Túlkun niðurstaðna þarf að taka mið af því hvernig gögn rannsóknarinnar eru fengin:</p>
+<ol style="list-style-type: decimal">
+<li>Þegar frumbreytan skilgreinir tvö mismunandi þýði. Engin tengsl koma þá þannig fram að skilyrt dreifing er sú sama fyrir öll gildi frumbreytunnar.
+<ol style="list-style-type: lower-alpha">
+<li>Dæmi um þetta eru tilraunaaðstæður þar sem hópnum er skipt í tvennt (eða fleiri hópa) og hver hópur fær mismunandi inngrip. Þá er eðlilegt að skoða hvort um er að ræða sömu skiptinguna hjá hópunum og láta það ráða túlkun niðurstaðna. Hér er lykilatriðið að gildi frumbreytunnar hjá hverjum og einum einstaklingi er ákvarðað.
+<ol style="list-style-type: lower-roman">
+<li>Guðmundur tekur dæmið um vínsölu eftir tegund tónlistar.</li>
+<li>Annað dæmi gæti verið hver önnur tilraun þar sem fylgibreytan er mæld á nafnkvarða. Til dæmis hvort mismunandi aðferðir við þunglyndismeðferð skili því að þunglyndiseinkenni minnki, standi í stað eða aukist.</li>
+</ol></li>
+</ol></li>
+<li>Þegar tvær breytur eru mældar í einu og sama þýðinu. Engin tengsl fela þá í sér að breyturnar tvær eru innbyrðis óháðar. Hér eru breyturnar tvær mældar, en ekki ákvarðaðar. Þá er oft eðlilegt að skoða hvort breyturnar séu innbyrðis óháðar (engin tengsl).
+<ol style="list-style-type: lower-alpha">
+<li>Dæmi um þetta eru þau tilvik þar sem við erum með gagnasett sem ekki eru byggð á tilraunum heldur mælingum á náttúrulegum hópum.
+<ol style="list-style-type: lower-roman">
+<li>GBA tekur dæmi um hvort karlar og konur detti í það eða ekki. En þetta er þó flóknarar en svo og einnig er mögulegt að líta á karla og konur sem óháð þýði og þá er hægt að skoða skilyrta dreifni út frá kyni.</li>
+<li>Annað dæmi gæti verið tengsl milli tegundar slysa og hvenær dagsins þau gerast. Bæði eru mældar breytur og niðurstaða kíkvaðrat prófsins er hugsanlega frekar til marks um tengsl breytanna tveggja en ekki út frá skilyrtri dreifingu þeirra.</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>Bókin segir:</p>
+<p>Ef engin skýr greinarmunur er gerður milli skýribreytu og háðri breytu í krosstöflu þá göngum við út frá því að við séum að skoða tengslin milli breytanna. Ef við erum hins vegar með það skýrt sett upp að önnur breytan er frumbreyta og hin breytan er fylgibreyta, þá berum við saman háða dreifingu á grunni frumbreytunnar og túlkum niðurstöðurnar þannig. Ef við erum ekki með skýra hugmynd um hvor sé frumbreyta og hvor sé fylgibreyta, þá reynum við einfaldlega að meta tengsl milli breytanna og þá getur jafnvel komið til álita að skoða háða dreifingu byggða á báðum breytum krosstöflunnar. Þá erum við með niðurstöður sem við túlkum einhvern veginn á þá vegu að um sé að ræða það sterk tengsl milli breytanna að ólíklegt er að þau hafi komið til vegna tilviljunar</p>
+<p>Bókin segir líka:</p>
+<p>Tvö mismunandi líkön geta búið til gögn fyrir r x c töflur sem leiða til kíkvaðrat prófsins.</p>
+<p>Í fyrra líkaninu þá eru óháð SRS dregin úr hverju c-þýðinu og hver observation er flokkuð í samræmi við flokkabreytu sem er með r-mögulegum gildum. Núlltilgátan er þá að dreifing flokkabreytunnar í röðunum sé hin sama fyrir öll c þýðin.</p>
+<p>Í seinna líkaninu er eitt SRS dregið úr þýði og observations eru flokkaðar í samræmi við tvær flokkabreytur sem hafa r og c möguleg gildi. Í þessu líkani segir núlltilgátan að breyturnar sem skilgreina raðir og dálka séu óháðar.</p>
+</div>
+<div id="goodness-of-fit" class="section level2">
+<h2><span class="header-section-number">4.15</span> Goodness-of-fit</h2>
+<p>Fyrir utan að reikna kíkvaðrat til að bera saman drieingu flokkabreytu í c-þýðum, þá er einnig hægt að nota kíkvaðrat til að bera saman úrtak úr tilteknu þýði við hypothesized dreifingu.</p>
+<p>Þá getum við til dæmis skoðað hvort tiltekin talning sé í samræmi við dreifingu sem segir til um að viðkomandi talning komi til af hendingu.</p>
+<p>Þá erum við að vinna með one-way töflu þar sem við erum með talning fyrir ákveðna breytu. Núlltilgátan okkar er að dreifing þessarar talningar sé í samræmi við ákveðna dreifingu - ef prófið er marktækt þá bendir það til að dreifingin sé önnur en sú sem við höfðum í huga.</p>
+<p>Framkvæmdin er mjög svipuð og þegar unnið er með kíkvaðrat próf út frá krosstöflu:</p>
+<ul>
+<li>gögn fyrir n mælingar (observations) fyrir flokkabreytu með k mögulegum flokkum (outcomes) eru summeruð sem mældar talningar (observed counts) n1, n2,…nk, í k hólfum.</li>
+<li>Núlltilgátan skilgreinir líkurnar p1, p2,…pk fyrir mögulegum flokkum (possible outcomes)</li>
+<li>Aðaltilgátan segir að hin sönnu líkindi fyrir possible ouctomes eru ekki líkindin sem eru tilgreind samkvæmt núlltilgátunni.</li>
+<li>Fyrir hvert hólf töflunnar, margfaldaðu heildarfjölda mælinga n með tilgreindum líkindum til að ákvarða væntitíðni
+<ul>
+<li>Væntitíðni = <span class="math inline">\(np_i\)</span></li>
+</ul></li>
+<li>Kíkvaðrat gildið mælir að hvaða marki mældu talningar hólfanna eru mismunandi en væntitíðni töfluhólfanna. Formúlan er:
+<ul>
+<li><span class="math inline">\(\sum=\frac{O-E^2}{E}\)</span></li>
+<li>Þar sem o er rauntíðnin</li>
+<li>Og e er væntitíðni viðkomandi hólfs</li>
+</ul></li>
+<li>Frígráðurnar eru k-1 og p gildi eru reiknuð út frá kíkvaðrat dreifingunni</li>
+<li>M&amp;M mæla með að nota þessa aðferð þegar væntitíðni í hverju hólfi er 5 eða hærri</li>
+</ul>
+<p>M&amp;M taka nokkur dæmi um hvernig sé hægt að hagnýta þetta ágæta próf:</p>
+<ul>
+<li>könnun var lögð fyrir í 6 ríkjum bandaríkjanna. Mikið var skrifað af opnum svörum og því eðlilegt að greina þau frekar. Sökum kostnaðar þótti ekki fýsilegt að greina þau öll og því var kerfisbundið úrtak valið þar sem svarblað 10 hvers svaranda var valið og það greint. En til að kanna hvort úrtakið væri bjagað (til dæmis vissu menn ekki hvernig útfylltum spurningalistum var raðað) er hægt að kanna hvort hlutfall spurningalista sem valdir voru í úrtakið, eftir ríkjum könnunarinnar væri það sama og raunverulegt hlutfall úrtaksins eftir mismunandi ríkjunum. Það er að segja, er dreifing þeirra opinna svara sem voru valin, hin sama og dreifing úrtaksins.</li>
+<li>dreifing lita M&amp;M í plain chocolate candies pokum. Þá er unnið út frá því að M&amp;M fyrirtækið birtir ákveðnar prósentur fyrir dreifingu lita í pokunum. Þegar þú opnar tiltekinn poka af M&amp;M og telur litina - er dreifingin önnur heldur en hin auglýsta dreifing.</li>
+<li>þeir taka líka dæmi um að sjúklingar á deild fyrir heilabilaða séu frekar árásargjarnir/hættulegir þegar fullt tungl er, heldur en þegar tungl er ekki fullt.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="hlutföll.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="heimildir.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["glosur_aok.pdf", "glosur_aok.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
