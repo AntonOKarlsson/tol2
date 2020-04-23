@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Kafli 2 Mann-Whitney Wilcoxon próf | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)</title>
+  <meta name="description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Kafli 2 Mann-Whitney Wilcoxon próf | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Kafli 2 Mann-Whitney Wilcoxon próf | Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)" />
+  
+  <meta name="twitter:description" content="Farið yfir kennsluefni í Tölfræði 3." />
+  
+
+<meta name="author" content="Anton Örn Karlsson" />
+
+
+<meta name="date" content="2020-04-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="hlutföll.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Tölfræði 3</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Inngangur</a></li>
+<li class="chapter" data-level="2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html"><i class="fa fa-check"></i><b>2</b> Mann-Whitney Wilcoxon próf</a><ul>
+<li class="chapter" data-level="2.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#inngangur-1"><i class="fa fa-check"></i><b>2.1</b> Inngangur</a></li>
+<li class="chapter" data-level="2.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#wilcoxon-mann-whitney-u-prófið"><i class="fa fa-check"></i><b>2.2</b> Wilcoxon Mann Whitney U prófið</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#stikalaus-próf-nonparametric-tests"><i class="fa fa-check"></i><b>2.2.1</b> Stikalaus próf (nonparametric tests)</a></li>
+<li class="chapter" data-level="2.2.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#raðsummuprófið"><i class="fa fa-check"></i><b>2.2.2</b> Raðsummuprófið</a></li>
+<li class="chapter" data-level="2.2.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#normal-nálgun"><i class="fa fa-check"></i><b>2.2.3</b> Normal nálgun</a></li>
+<li class="chapter" data-level="2.2.4" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#tilgátuprófun-raðsummuprófins"><i class="fa fa-check"></i><b>2.2.4</b> Tilgátuprófun raðsummuprófins</a></li>
+<li class="chapter" data-level="2.2.5" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#jafnhá-gildi-í-gagnasafninu"><i class="fa fa-check"></i><b>2.2.5</b> Jafnhá gildi í gagnasafninu</a></li>
+<li class="chapter" data-level="2.2.6" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#dæmi"><i class="fa fa-check"></i><b>2.2.6</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#aðrar-aðferðir"><i class="fa fa-check"></i><b>2.3</b> Aðrar aðferðir</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#útlagar-í-gögnunum"><i class="fa fa-check"></i><b>2.3.1</b> Útlagar í gögnunum</a></li>
+<li class="chapter" data-level="2.3.2" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#umbreyting-gagna"><i class="fa fa-check"></i><b>2.3.2</b> Umbreyting gagna</a></li>
+<li class="chapter" data-level="2.3.3" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#aðrar-dreifingar"><i class="fa fa-check"></i><b>2.3.3</b> Aðrar dreifingar</a></li>
+<li class="chapter" data-level="2.3.4" data-path="mann-whitney-wilcoxon-próf.html"><a href="mann-whitney-wilcoxon-próf.html#bootstrap-eða-permutation-próf"><i class="fa fa-check"></i><b>2.3.4</b> Bootstrap eða permutation próf</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="hlutföll.html"><a href="hlutföll.html"><i class="fa fa-check"></i><b>3</b> Hlutföll</a><ul>
+<li class="chapter" data-level="3.1" data-path="hlutföll.html"><a href="hlutföll.html#ályktanir-um-hlutföll"><i class="fa fa-check"></i><b>3.1</b> Ályktanir um hlutföll</a></li>
+<li class="chapter" data-level="3.2" data-path="hlutföll.html"><a href="hlutföll.html#tvíliðudreifingin"><i class="fa fa-check"></i><b>3.2</b> Tvíliðudreifingin</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-1"><i class="fa fa-check"></i><b>3.2.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="hlutföll.html"><a href="hlutföll.html#ályktanir-um-eitt-hlutfall"><i class="fa fa-check"></i><b>3.3</b> Ályktanir um eitt hlutfall</a></li>
+<li class="chapter" data-level="3.4" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil"><i class="fa fa-check"></i><b>3.4</b> Öryggisbil</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-2"><i class="fa fa-check"></i><b>3.4.1</b> Dæmi</a></li>
+<li class="chapter" data-level="3.4.2" data-path="hlutföll.html"><a href="hlutföll.html#túlkun-öryggisbils"><i class="fa fa-check"></i><b>3.4.2</b> Túlkun öryggisbils</a></li>
+<li class="chapter" data-level="3.4.3" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil-nær-aðeins-utan-um-hluta-villunnar"><i class="fa fa-check"></i><b>3.4.3</b> Öryggisbil nær aðeins utan um hluta villunnar</a></li>
+<li class="chapter" data-level="3.4.4" data-path="hlutföll.html"><a href="hlutföll.html#plús-fjórir-öryggisbil"><i class="fa fa-check"></i><b>3.4.4</b> Plús fjórir öryggisbil</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="hlutföll.html"><a href="hlutföll.html#marktektarpróf"><i class="fa fa-check"></i><b>3.5</b> Marktektarpróf</a></li>
+<li class="chapter" data-level="3.6" data-path="hlutföll.html"><a href="hlutföll.html#val-á-úrtaki-út-frá-öryggisbili"><i class="fa fa-check"></i><b>3.6</b> Val á úrtaki út frá öryggisbili</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="hlutföll.html"><a href="hlutföll.html#dæmi-4"><i class="fa fa-check"></i><b>3.6.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="hlutföll.html"><a href="hlutföll.html#tvö-hlutföll"><i class="fa fa-check"></i><b>3.7</b> Tvö hlutföll</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="hlutföll.html"><a href="hlutföll.html#meðaltal-og-staðalfrávik"><i class="fa fa-check"></i><b>3.7.1</b> Meðaltal og staðalfrávik</a></li>
+<li class="chapter" data-level="3.7.2" data-path="hlutföll.html"><a href="hlutföll.html#öryggisbil-1"><i class="fa fa-check"></i><b>3.7.2</b> Öryggisbil</a></li>
+<li class="chapter" data-level="3.7.3" data-path="hlutföll.html"><a href="hlutföll.html#marktektarpróf-1"><i class="fa fa-check"></i><b>3.7.3</b> Marktektarpróf</a></li>
+<li class="chapter" data-level="3.7.4" data-path="hlutföll.html"><a href="hlutföll.html#úrtaksstærð"><i class="fa fa-check"></i><b>3.7.4</b> Úrtaksstærð</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="hlutföll.html"><a href="hlutföll.html#hlutfallsleg-áhætta"><i class="fa fa-check"></i><b>3.8</b> Hlutfallsleg áhætta</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="krosstöflur.html"><a href="krosstöflur.html"><i class="fa fa-check"></i><b>4</b> Krosstöflur</a><ul>
+<li class="chapter" data-level="4.1" data-path="krosstöflur.html"><a href="krosstöflur.html#helstu-hugtök"><i class="fa fa-check"></i><b>4.1</b> Helstu hugtök</a></li>
+<li class="chapter" data-level="4.2" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur-1"><i class="fa fa-check"></i><b>4.2</b> Krosstöflur</a></li>
+<li class="chapter" data-level="4.3" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---dæmi-1"><i class="fa fa-check"></i><b>4.3</b> Krosstöflur - dæmi 1</a></li>
+<li class="chapter" data-level="4.4" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---myndrænt---dæmi-1"><i class="fa fa-check"></i><b>4.4</b> Krosstöflur - myndrænt - dæmi 1</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-um-krossað-súlurit."><i class="fa fa-check"></i><b>4.4.1</b> Dæmi um krossað súlurit.</a></li>
+<li class="chapter" data-level="4.4.2" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-um-mosaic-rit"><i class="fa fa-check"></i><b>4.4.2</b> Dæmi um mosaic rit</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="krosstöflur.html"><a href="krosstöflur.html#krosstöflur---dæmi-2"><i class="fa fa-check"></i><b>4.5</b> Krosstöflur - dæmi 2</a></li>
+<li class="chapter" data-level="4.6" data-path="krosstöflur.html"><a href="krosstöflur.html#tölfræðilega-óháðar-breytur"><i class="fa fa-check"></i><b>4.6</b> Tölfræðilega óháðar breytur</a></li>
+<li class="chapter" data-level="4.7" data-path="krosstöflur.html"><a href="krosstöflur.html#kíkvaðrat-útreikningar"><i class="fa fa-check"></i><b>4.7</b> Kíkvaðrat, útreikningar</a></li>
+<li class="chapter" data-level="4.8" data-path="krosstöflur.html"><a href="krosstöflur.html#kíkvaðrat-dæmi-1"><i class="fa fa-check"></i><b>4.8</b> Kíkvaðrat dæmi 1</a></li>
+<li class="chapter" data-level="4.9" data-path="krosstöflur.html"><a href="krosstöflur.html#forsendur-kí-kvaðrats"><i class="fa fa-check"></i><b>4.9</b> Forsendur kí kvaðrats</a></li>
+<li class="chapter" data-level="4.10" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-dæmi-2"><i class="fa fa-check"></i><b>4.10</b> Kí-kvaðrat dæmi 2</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="krosstöflur.html"><a href="krosstöflur.html#dæmi-7"><i class="fa fa-check"></i><b>4.10.1</b> Dæmi</a></li>
+</ul></li>
+<li class="chapter" data-level="4.11" data-path="krosstöflur.html"><a href="krosstöflur.html#sambandið-milli-kí-og-z"><i class="fa fa-check"></i><b>4.11</b> Sambandið milli kí og z</a></li>
+<li class="chapter" data-level="4.12" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-dreifingin"><i class="fa fa-check"></i><b>4.12</b> Kí-kvaðrat dreifingin</a></li>
+<li class="chapter" data-level="4.13" data-path="krosstöflur.html"><a href="krosstöflur.html#kí-kvaðrat-leif"><i class="fa fa-check"></i><b>4.13</b> Kí-kvaðrat leif</a></li>
+<li class="chapter" data-level="4.14" data-path="krosstöflur.html"><a href="krosstöflur.html#túlkun"><i class="fa fa-check"></i><b>4.14</b> Túlkun</a></li>
+<li class="chapter" data-level="4.15" data-path="krosstöflur.html"><a href="krosstöflur.html#goodness-of-fit"><i class="fa fa-check"></i><b>4.15</b> Goodness-of-fit</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="heimildir.html"><a href="heimildir.html"><i class="fa fa-check"></i>Heimildir</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mann-whitney-wilcoxon-próf" class="section level1">
+<h1><span class="header-section-number">Kafli 2</span> Mann-Whitney Wilcoxon próf</h1>
+<div id="inngangur-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Inngangur</h2>
+<p>Aðferðir við greiningu á samfelldum breytum falla í grófum dráttum í tvo flokka eftir því hvort settar eru fram forsendur um dreifingu gagnanna eða ekki. Þegar um er að ræða ræða aðferðir sem byggja á forsendum um dreifingu gagnanna þá eru þær kallaða stikaaðferðir (parametric methods) af því að við reynum að meta stikana sem gögnin benda til þess að séu til staðar í þýði. Dæmi um stika eru meðaltal og staðalfrávik - sem eru stikarnir sem lýsa normaldreifingu. Allar algengar stikaaðferðir byggja á því að gögnin fylgi normaldreifingu og að dreifing gagnanna (spread þeirra) sé eins milli hópa eða yfir spönn þeirra gagna sem verið er að skoða.</p>
+<p>Forsendan um normaldreifingu:</p>
+<ul>
+<li>dreifing úrtaksmeðaltala sé nokkurn veginn normal</li>
+<li>þetta er uppfyllt þegar normaldreifing er til staðar í þýðinu eða þýðunum sem við erum að draga úrtak úr.</li>
+</ul>
+<p>Hefðbundin ályktunartölfræðipróf eru traust hvað varðar frávik frá normaldreifingu <strong>til dæmis t-próf og ANOVA</strong></p>
+<blockquote>
+<p>Traust (robust) tölfræðipróf eru þau sem henta vel fyrir útreikninga fyrir ýmiskonar líkindadreifingar - sérstaklega þær sem eru ekki normal, til dæmis vegna útgilda í dreifingu gagnanna. Tölfræðipróf er traust ef við náum að halda í skefjum líkindum þess að finna mun í úrtaki sem ekki er til staðar í þýði. Með öðrum orðum, villa af tegund 1 er haldið í skefjum. Dags daglega merkir þetta að með traustum aðferðum munu smávægileg frávik frá normaldreifingu hafa afar lítil áhrif á ályktunartökuna (inference) - sérstaklega þegar við eum með nógu stór úrtök.</p>
+</blockquote>
+<blockquote>
+<p>Ágætt er að rifja upp villu af tegund 1 og villu af tegund 2. Villa af tegund 1 er að álykta um eitthvað sem ekki er raunverulega til staðar (staðfesta almenna skoðun með röngum upplýsingum). Villa af tegund 2 er að ranglega álykta að eitthvað sé ekki til staðar þegar það er í raun ekki til staðar (andmæla almennri skoðun á grunni rangra upplýsinga.)</p>
+</blockquote>
+<p>Hins vegar er vandinn þegar í ljós kemur (til dæmis út frá myndrænni skoðun gagnanna) að við erum langt frá normaldreifingu í úrtakinu og sérstaklega þegar um er að ræða fáar mælingar. Eitt af því sem er þá hægt að gera er að beita ályktunartölfræði sem ekki veltur á stikum, það er sikalaust próf (nonparametric tests). Algengt stikalaust próf er Wilcoxon Mann Whitney U prófið.</p>
+</div>
+<div id="wilcoxon-mann-whitney-u-prófið" class="section level2">
+<h2><span class="header-section-number">2.2</span> Wilcoxon Mann Whitney U prófið</h2>
+<div id="stikalaus-próf-nonparametric-tests" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Stikalaus próf (nonparametric tests)</h3>
+<p>Stikalausar aðferðir koma í staðinn fyrir t-próf og dreifigreiningu þegar normaldreifingarforsendu prófanna er ekki mætt eða um er að ræða mjög smá úrtök þar sem ekki er hægt að leggja mat á dreifingu gagnanna með viðunandi öryggi.</p>
+<p><em>When distributions are strongly skewed, we often prefer the median to the mean as a measure of center. In simplest form, the hypotheses for rank tests just replace the mean by the median.</em></p>
+<p>Sem marktektarpóf þá hafa raðsummupróf nánast eins mikil afköst og t-próf til að að finna raunverulegan mun milli hópa þegar úrtök eru stór - jafnvel fyrir gögn sem dreifast í samræmi við forsendur t-prófa. Það er helst þegar unnið er með samanburð milli tveggja hópa sem eru með mjög ólíka dreifingu sem raðsummuprófið getur orðið ótraust.</p>
+<blockquote>
+<p>Afköst (power): Afköst (power) tölfræðiprófs segja til um líkurnar á því að hafna núlltilgátu réttilega (í öðrum úrtökum úr sama þýði, miðað við það að endurtaka rannsóknina á nákvæmlega sama hátt og hún var framkvæmd).</p>
+</blockquote>
+<p>Raðsummuaðferðir eru fríar frá forsendum, sem er klárlega kostur, en óskostur þeirra er að þær eru fyrst og fremst nytsamlegar til að prófa tilgátur en hins vegar fæst ekkert gott stikamat úr niðurstöðum prófsins - til dæmis fæst ekkert mat á muninum milli hópanna þegar raðsummupróf eru notuð, eitthvað sem er auðvelt að fá fram með notkun t-prófs. Til þess að geta reiknað öryggisbil fyrir raðsummuaðferðir þarf að gefa sér enn fleiri forsendur sem eru strangari.</p>
+<p>Yfirleitt vill maður frekar nota stikaaðferðir - en þegar við erum að vinna með mjög skekkt úrtök þá eiga stikalaus próf hiklaust rétt á sér. Fyrir lítil úrtök er Wilcoxn Mann Whitney prófið oft hentugri aðferð en t-próf. Þó ber að hafa í huga að aðrar stikalausar aðferðir virka ekki í mjög, mjög smáum úrtökum.</p>
+<p>Stikalaus próf gera engar kröfur um ákveðna dreifingu.</p>
+<p>Í prófum á borð við Wicoxon Mann Whitney U, þá er fyrsta skrefið að umbreyta gögnunum sem er unnið með. Það er, ekki er unnið með raunverulegu mælingarnar heldur er unnið með raðgildi gagnanna. Raðgildi er þegar búið er að raða gildum gagnasafnsins í stærðarröð og setja gildi fyrir hvar í röðinni hvert gildi fellur. Dæmi um slíkt má sjá í töflu <a href="mann-whitney-wilcoxon-próf.html#tab:radgildi">2.1</a>.</p>
+<table class="table table-striped" style="width: auto !important; ">
+<caption>
+<span id="tab:radgildi">Tafla 2.1: </span>Raungildi og samsvarandi raðgildi.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Gildi
+</th>
+<th style="text-align:right;">
+Raðgildi
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="raðsummuprófið" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Raðsummuprófið</h3>
+<p>Eitt algengasta stikalausa prófið er Wilcoxon raðsummuprófið. Sem er sambærilegt við Mann Whitney U prófið. Frank Wilcoxon birti prófið fyrst árið 1945.</p>
+<p>Prófið byggir á þeirri meginhugmynd að raða gildum í stærðarröð innan þeirra hópa sem verið er að skoða. Næst eru raðsummur reiknaðar fyrir hvorn hóp fyrir sig með því að leggja saman öll raðgildi hópsins. Núlltilgátan er að hóparnir tveir komi úr sama þýðinu þannig að allur mismunur raðsummanna milli hópanna komi til vegna úrtaksvillu.</p>
+<p>Meginhugmynd prófsins er að horfa aðeins á staðsetningu mæligildanna í þessum raðaða lista. Þess vegna þarf að skipta út raunverulegu gildunum í gagnasafninu fyrir raðgildin.</p>
+<p>Raðgildi innheldur aðeins upplýsingar um röðun gildanna - ekkert annað. Búið er að hreinsa aðrar upplýsingar um mæligildin úr safninu þegar búið er að umbreyta þeim í raðgildi. Þess vegna þegar unnið er með raðgildi þá má líta hjá því að gögnin uppfylla ekki forsendur um normaldreifingu.</p>
+<p>Til þess að búa til raðgildi er gögnunum raðað í hækkandi stærðarröð (frá hinu minnsta til hins stærsta) og hverju gildi úthlutað raðtala, þannig að lægsta gildi gagnanna fær raðgildið 1, næsta fær 2 og svo koll af kolli.</p>
+<p>Wilcoxon raðsummuprófið
+1. Gildum raðað í stærðarröð eftir hópum
+2. Raðsumma reiknuð í hvorum hópi fyrir sig
+3. Raðsummurnar bornar saman
+4. Prófgildið borið saman við vendigildi</p>
+<p>Í bókinni er unnið með átta mælingar - þegar um er að ræða raðsummu átta mælinga þá er heildarraðsumman alltaf 36.</p>
+<p>Raðsumman fyrir american league er 25 en 11 fyrir national league.</p>
+<p>Formlega séð er Wilcoxon prófið gert á eftirfarandi máta:</p>
+<p>Velja SRS af stærðinni n1 úr ákveðnu þýði og svo óháð SRS af stærðinni n2 úr öðru þýði - í heildina N fjöldi mælinga, N = n1+n2. Raðaðu öllum mælingum í stærðarröð. Summan W fyrir raðgildi fyrra úrtaksins er Wilcoxon raðsumman. Ef bæði þýðin hafa sömu samfelldu dreifinguna þá hefur W meðaltalið:</p>
+<p><span class="math inline">\(\mu_{w} = \frac{n_1(N+1)}{2}\)</span></p>
+<p>og staðalfrávikið;</p>
+<p><span class="math inline">\(\sigma_{w} = \sqrt{\frac{n_{1}+n_{2}(N+1)}{12}}\)</span></p>
+<p>Wilcoxon raðsummuprófið hafnar þeirri tilgátu að þýðin tvö hafi sömu dreifinguna þegar raðsumman W er langt frá meðaltali sínu. Þetta próf er einnig kallað Mann-Whitney prófið.</p>
+<p>Fyrir dæmið í bókinni er núlltilgátan:</p>
+<ul>
+<li>fjöldi hitta í american league er það sama og í national league</li>
+</ul>
+<p>Aðaltilgátan er:</p>
+<ul>
+<li>fjöldi hitta í american league er hærra en í national league</li>
+</ul>
+<p>Í dæminu er meðaltal hitta í american league um tveimur staðalfrávikum hærra en meðaltalið (25 - 18 = 7), tvö staðalfrávik eru einmitt um 7.</p>
+</div>
+<div id="normal-nálgun" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Normal nálgun</h3>
+<p>Raðsumman nálgast normaldreifingu eftir því sem úrtakið stækkar. Þá er hægt að búa til z-gildi með því að staðla W. Þá er hægt að nota hefðbundna normalútreikninga til að finna p-gildi fyrir W-gildið. Þar sem W tekur aðeins heiltölugildi þá bætir continuity correction nákvæmni the approximation.</p>
+<div id="samfelluleiðrétting" class="section level4">
+<h4><span class="header-section-number">2.2.3.1</span> Samfelluleiðrétting</h4>
+<ul>
+<li>henni er semsagt beitt þegar við ætlum að nota samfellda dreifingu (eins og normal dreifinguna) fyrir gögn sem eru rofin (eins og til dæmis binomial dreifinguna).<br />
+</li>
+<li>hún virkar þannig að gengið er út frá því að talan 25 nái yfir rófið frá 24,5 - 25,5 og þá væntanlega að talan 26 nái yfir rófið frá 25,5 - 26,5 og svo koll af kolli. Með þessum hætti getum við reynt að nálgast samfellda dreifingu með rofnum breytum.</li>
+</ul>
+</div>
+</div>
+<div id="tilgátuprófun-raðsummuprófins" class="section level3">
+<h3><span class="header-section-number">2.2.4</span> Tilgátuprófun raðsummuprófins</h3>
+<p>Núlltilgátan er að dreifing hitta í leik sé hin sama í deildunum tveimur. Aðaltilgátan er að það séu fleiri hit í hverjum leik í American League heldur en í national league.
+Ef við erum með normaldreifingu eða rosa stórt úrtak þá getum við notað t-próf.</p>
+<p>Ef hægt er að uppfylla þá forsendu að bæði þýðin sem verið er að skoða hafi sama dreifingu af sömu lögun og spread, þá er Wilcoxon prófið að prófa mun á miðgildum tveggja hópa. Þannig að ef líkindadreifing beggja deildanna í dæminu litu námkvæmlega eins út, nema önnur væri hreyfð meira til vinstri eða hægri - þá væri hægt að líta á það að um væri að ræða nokkurskonar t-próf fyrir miðgildi. Þetta er hins vegar ströng forsenda sem er afar sjaldan uppfyllt.</p>
+<p>Wilcoxon prófið má einnig nota á mun almennarri máta - þá er:</p>
+<ul>
+<li>núlltilgátan: Dreifingar hópanna tveggja á fulgibreytunni breytunni hin sama</li>
+<li>aðaltilgátan: Dreifing annars hópsins inniheldur gildi sem eru kerfisbundið stærri.</li>
+</ul>
+</div>
+<div id="jafnhá-gildi-í-gagnasafninu" class="section level3">
+<h3><span class="header-section-number">2.2.5</span> Jafnhá gildi í gagnasafninu</h3>
+<p>Eftir sem áður er öllum gildunum raðað í stærðarröð en þau sem eru með sama hrágildið fá meðaltalið af raðgildunum. Í bókinni er tekið dæmi um þar sem fimmta og sjötta gildinu (sem er sama gildið; 20) er gefið raðgildið 5,5, sem er meðtaltalið af 5 og 6.</p>
+<p>Jafnhá gildi skapa smá vesen af því að þá þarf að aðlaga staðalfráviksútreikninga og excact dreifingin fyrir Wilcoxon raðsummuna W breytist líka. En sem betur fer er þetta allt saman leiðrétt í þartilgerðum hugbúnaði!</p>
+</div>
+<div id="dæmi" class="section level3">
+<h3><span class="header-section-number">2.2.6</span> Dæmi</h3>
+<p>Í töflu <a href="mann-whitney-wilcoxon-próf.html#tab:hofundatafla">2.2</a> má sjá einkunnir sjö bóka eftir J.R.R. Tolkien og sjö fyrstu Harry Potter bókanna eftir J.K. Rowling af vefnum Goodreads.</p>
+<table class="table table-striped" style="width: auto !important; ">
+<caption>
+<span id="tab:hofundatafla">Tafla 2.2: </span>Raungildi og samsvarandi raðgildi fyrir einkunnir af Goodreads.
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+Einkunn
+</th>
+<th style="text-align:left;">
+Höfundur
+</th>
+<th style="text-align:right;">
+Raðgildi
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.97
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3.98
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.27
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+4
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.36
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+5
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.42
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+6
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.44
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+7
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.47
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+8
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.49
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.50
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+10
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.55
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+11
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.56
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.57
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+13
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4.62
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+14
+</td>
+</tr>
+</tbody>
+</table>
+<p>Nú getum við reiknað meðaltal og staðalfrávik.</p>
+<p><span class="math inline">\(\mu_{w} = \frac{7(14+1)}{2}\)</span>
+<span class="math inline">\(\mu_{w} = \frac{105}{2}\)</span>
+<span class="math inline">\(\mu_{w} = 52.5\)</span></p>
+<p><span class="math inline">\(\sigma_{w} = \sqrt{\frac{n_{1}+n_{2}(N+1)}{12}}\)</span>
+<span class="math inline">\(\sigma_{w} = \sqrt{\frac{7+7(14+1)}{12}}\)</span>
+<span class="math inline">\(\sigma_{w} = \sqrt{\frac{210}{12}}\)</span>
+<span class="math inline">\(\sigma_{w} = \sqrt{17.5}\)</span>
+<span class="math inline">\(\sigma_{w} = 4.18\)</span></p>
+<p>Eins og sjá má á mynd <a href="mann-whitney-wilcoxon-próf.html#fig:stoplarit1">2.1</a> þá víkur dreifingin nokkuð frá normaldreifingu og að sama skapi er um að ræða litla hópa - eða öllu heldur fáar mælingar. Eins og við höfum áður rætt þá eru þetta kjöraðstæður til að nota Wilcoxon raðsummuprófið.</p>
+<div class="figure"><span id="fig:stoplarit1"></span>
+<img src="glosur_aok_files/figure-html/stoplarit1-1.png" alt="Normal kúrva og dreifing höfundaeinkunna" width="672" />
+<p class="caption">
+Mynd 2.1: Normal kúrva og dreifing höfundaeinkunna
+</p>
+</div>
+<p>Hér fyrir neðan sjáum við niðurstöður Wilcoxon prófsins úr R. Eins og sjá má er til staðar tölfræðilega marktækur munur á einkunnum höfundanna og á grunni þessara niðurstaðna er hægt að álykta sem svo að bækur J.K. Rowling um galdrastrákinn Harry Potter séu almenn vinsælli eða betur liðnar af lesendum heldur en bókaflokkur Tolkiens um Miðgarð (<em>Middle Earth</em>).</p>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  eink by hof
+## W = 45, p-value = 0.005302
+## alternative hypothesis: true location shift is greater than 0</code></pre>
+<div id="munurinn-á-prófgildum-wilcoxon-og-mann-whitney-u" class="section level4">
+<h4><span class="header-section-number">2.2.6.1</span> Munurinn á prófgildum Wilcoxon og Mann Whitney U</h4>
+<p>Samkvæmt niðurstöðum dæmisins er W gildið (tölugildi prófsins) 45. Samkvæmt formúlunni sem er bókinni hefði raðsumman átt að vera 73, en það er samanlögð raðsumma allra bóka J.K. Rowling. Þetta kemur til vegna þess að í R (og líka í JASP) þá er raðsummugildi prófsins reiknað á sama hátt og prófgildi Mann-Whitney U er reiknað.</p>
+<p>Þetta kemur fram í hjálpartexta R um Wilcoxon prófið í R:</p>
+<blockquote>
+<p>“The literature is not unanimous about the definitions of the Wilcoxon rank sum and Mann-Whitney tests. The two most common definitions correspond to the sum of the ranks of the first sample with the minimum value subtracted or not: R subtracts and S-PLUS does not, giving a value which is larger by m(m+1)/2 for a first sample of size m. (It seems Wilcoxon’s original paper used the unadjusted sum of the ranks but subsequent tables subtracted the minimum.)”</p>
+</blockquote>
+<p>Í töflu <a href="mann-whitney-wilcoxon-próf.html#tab:MWUreikn">2.3</a> er dæmi um hvernig hægt er að reikna U gildi fyrir hvorn hóp fyrir sig. Þá er talið fyrir hverja röð töflunnar hversu margar mælingar frá hinum hópnum eru fyrir neðan röðina hjá þeirri mælingu sem er í röðinni. Þannig eru 7 Tolkien bækur fyrir neðan fyrstu fjórar raðir töflunnar og því fá þær allar gildið 7. Í fimmtu röð töflunnar kemur fyrsta Tolkien bókin og fyrir neðan hana eru þrjár Rowling bækur. Svona gengur þetta niður alla töfluna. Svo eru öll þessi gildi summuð upp og þannig kemur út Mann-Whitney U gildið, sem er táknað með W í niðurstöðu prófins í R og JASP.</p>
+<table class="table table-striped" style="width: auto !important; ">
+<caption>
+<span id="tab:MWUreikn">Tafla 2.3: </span>Raungildi og samsvarandi raðgildi fyrir einkunnir af Goodreads.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+Einkunn
+</th>
+<th style="text-align:left;">
+Höfundur
+</th>
+<th style="text-align:right;">
+Raðgildi
+</th>
+<th style="text-align:right;">
+U-gildi Rowling
+</th>
+<th style="text-align:right;">
+U-gildi Tolkien
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+14
+</td>
+<td style="text-align:right;">
+4.62
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+13
+</td>
+<td style="text-align:right;">
+4.57
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+12
+</td>
+<td style="text-align:right;">
+4.56
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+11
+</td>
+<td style="text-align:right;">
+4.55
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+10
+</td>
+<td style="text-align:right;">
+4.50
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:right;">
+4.49
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+8
+</td>
+<td style="text-align:right;">
+4.47
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+7
+</td>
+<td style="text-align:right;">
+4.44
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+6
+</td>
+<td style="text-align:right;">
+4.42
+</td>
+<td style="text-align:left;">
+Rowling
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+5
+</td>
+<td style="text-align:right;">
+4.36
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+4
+</td>
+<td style="text-align:right;">
+4.27
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+3
+</td>
+<td style="text-align:right;">
+3.98
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:right;">
+3.97
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+3.92
+</td>
+<td style="text-align:left;">
+Tolkien
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<p>Þessi aðferð við að reikna gildi Wilcoxon Mann-Whitney raðsummuprófsins virkar ágætlega fyrir mjög smá gagnasöfn og til að fá tilfinningu fyrir því hvernig aðferðin virkar en fyrir stærri gagnasöfn er skynsamlegra að nota hraðvirkari leiðir.</p>
+<p>Fyrir U-gildið í hópi 1 myndum við nota: <span class="math inline">\(U_{1}=\sum_{R_1}-\frac{n_1(n_1+1)}{2}\)</span></p>
+<p>eða <span class="math inline">\(U_{1}=73-\frac{7(7+1)}{2}\)</span>
+<span class="math inline">\(U_{1}=73-28\)</span>
+<span class="math inline">\(U_{1}=45\)</span></p>
+<p>Fyrir U-gildið í hópi 2 myndum við nota: <span class="math inline">\(U_{2}=\sum_{R_2}-\frac{n_2(n_2+1)}{2}\)</span></p>
+<p>eða <span class="math inline">\(U_{2}=32-\frac{72(7+1)}{2}\)</span>
+<span class="math inline">\(U_{2}=32-28\)</span>
+<span class="math inline">\(U_{2}=4\)</span></p>
+<p>Eins og sjá má þá gefur þessi leið nákvæmlega sömu niðurstöðu og fyrri aðferðin þar sem talið var hversu margar mælingar úr andstæðum hópi voru fyrir neðan viðkomandi mælingu.</p>
+</div>
+<div id="mismunandi-p-gildi" class="section level4">
+<h4><span class="header-section-number">2.2.6.2</span> Mismunandi p-gildi</h4>
+<p>Við sjáum að p-gildið sem við fáum úr JASP er ekki alveg það sama og er sýnt í bókinni. Í bókinni er miðað við aproximate p-gildi en JASP (og flestallur tölfræðihugbúnaður) gefur exact p-gildi út frá viðeigandi töflum. Þær eru hins vegar það stórar að bókarhöfundum þótti ekki eðlilegt að troða þeim öllum í bókina.</p>
+</div>
+</div>
+</div>
+<div id="aðrar-aðferðir" class="section level2">
+<h2><span class="header-section-number">2.3</span> Aðrar aðferðir</h2>
+<p>Mikilvægt er að hafa í huga að stikalaus próf eru ekki eina lausnin á mjög skekktum gögnum.</p>
+<div id="útlagar-í-gögnunum" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Útlagar í gögnunum</h3>
+<p>Kannski víkur dreifingin frá normaldreifingu vegna útgidli (útlagar). Hvað er hægt að gera við útgildi?</p>
+<p>Útgildi: Gildi sem eru langt frá meginhluta dreifingarinnar.</p>
+<ul>
+<li>Í sumum tilvikum er hægt að eyða útlögum úr úrtakinu þar sem þeir tilheyra ekki þýði rannsóknarinnar (biluð mælitæki, gamall maður í úrtaki ungs fóks etc.)<br />
+</li>
+<li>Tilreiknun eða breyting á gildi útlaga til að færa þá nær meginhluta dreifingarinnar. En þá þarf alltaf að gera næmnigreiningu</li>
+</ul>
+</div>
+<div id="umbreyting-gagna" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Umbreyting gagna</h3>
+<p>Stundum er hægt að umbreyta gögnum til að færa þau nær normaldreifingu</p>
+<p>Klassískt dæmi eru laun. Í hefðbundnu þýði er alvalanalegt að laun séu jákvætt skekkt (það er, fá mjög há gildi). Þess vegna er algengt að taka lógarithma af launum þar sem það togar inn hæstu gildin og þéttir dreifinguna.</p>
+</div>
+<div id="aðrar-dreifingar" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Aðrar dreifingar</h3>
+<p>Hægt er að nota aðrar dreifingar heldur en normaldreifinguna sem líkan fyrir dreifingu viðkomandi breytu í þýðinu. Þá eru til inference procedure (væntanlega annarskonar ályktunartölfræðipróf) sem byggja á annarskonar dreifingum heldur en t-próf, það er non-normal procedures. Í bókinni er meðal annars minnst á:
+* Weibull dreifinguna
+* Exponential
+* Poisson</p>
+</div>
+<div id="bootstrap-eða-permutation-próf" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Bootstrap eða permutation próf</h3>
+<p>Bootstrap og permutation próf þarfnast ekki normaldreifingar né neinnar annar sérstakrar dreifingar. Bókarhöfundar mæla með þessum aðferðum nema úrtakið sé þeim mun smærra.</p>
+<p>Fjallað er um endurúrtökur (bootstraping í kafla 16 sem hægt er að finna á vefnum). Þess má einnig geta að þar er sýnt hvernig hægt er að beita slíkum aðferðum með notkun tölfræðihugbúnaðarins R.</p>
+<p>Forsenda: Að um er að ræða handahófskennt úrtak úr þýði. Hins vegar skiptir ekki máli hvort um er að ræða sérstaklega stór úrtök (þó það sé jafnan betra!) eða normaldreifingu.</p>
+<p>Aðferðin sem slík er einföld - en kann að kalla á nokkuð öflugar tölvur. Hún gengur fyrir sig í eftirfarandi skrefum:</p>
+<ul>
+<li>Endurtekin úrtök valin úr upprunalega úrtakinu, with replacement. Hvert nýtt úrtak á að vera af sömu stærð og upprunalega úrtakið.</li>
+<li>Endurúrtökudreifingin lýsir því hvernig stikinn dreifist yfir ítrekuð úrtök. Þannig er hægt að búa til úrtakadreifinguna.</li>
+</ul>
+<p>Bootstrap er prýðilegt verkfæri til að meta dreifni (sérstaklega fyrir flókin gögn) og svo einnig til að reikna öryggisbil og jafnvel mun á hópum.<br />
+Svo er hægt að nota permutation test til að kanna marktækan mun - eins og með Wilcoxon.</p>
+<p>Resampling próf virka á sama hátt og önnur marktektarpróf.</p>
+<ul>
+<li>Velja stika sem þú vilt skoða</li>
+<li>Búa til úrtakadreifingu sem fyrir stikann ef ekki væri um að ræða áhrifin í þýðinu</li>
+<li>Finna stikann í úrtakadreifingunni.
+<ul>
+<li>Ef gildið er í meginhluta dreifingarinnar þá gæti hann allt eins komið fram vegna handahófi - það er, svona áhrif eru það algeng að það er ekkert sérstaklega skrýtið að þau komi fram.</li>
+<li>Gildi sem lendir hins vegar í jöðrum dreifingarinnar myndu hins vegar sjaldan koma fram að handahófi og er því til marks um að líklega er munurinn einnig til staðar í þýðinu.</li>
+</ul></li>
+</ul>
+<p>Lág p-gildi er rök með aðaltilgátunni og á móti núlltilgátunni.</p>
+<p>Til að reikna permutation próf</p>
+<ul>
+<li>Velja mælingar úr gagnasafninu af handahófi til að vera samanburðarhópur - aðrir eru control group.
+<ul>
+<li>Notað er SRS án replacement.</li>
+<li>Kallast permutation resample.</li>
+</ul></li>
+<li>Stærðin á þessum úrtökum fer eftir því hversu margir eru í þessum hópum í raunverulegu gögnum rannsóknarinnar.</li>
+<li>Reikna meðal skorið í hvorum hópi fyrir sig. Munurinn á meðaltali hópanna er stikinn sem við höfum áhuga á.</li>
+<li>Endurtaka þetta (resampling og útreikninga á stikanum) í hundruði skipta.
+<ul>
+<li>Dreifing stikans úr þessum endurúrtökum er mat á úrtakadreifingunni undir núlltilgátunni (það er að enginn munur sé milli hópanna í raunverulega úrtakinu).</li>
+<li>PERMUTATION DISTRIBUTION.</li>
+</ul></li>
+<li>Þá er stikinn eins og hann var reiknaður út í úrtakinu skoðaður og staðsetning hans á permutation distribution fundin til að finna p-gildi stikans.</li>
+</ul>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="hlutföll.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["glosur_aok.pdf", "glosur_aok.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

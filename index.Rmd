@@ -1,0 +1,24 @@
+--- 
+title: "Tölfræði 2 fyrir BS nema í Sálfræði (útgáfa 0.1 vor 2020)"
+author: "Anton Örn Karlsson"
+date: "`r Sys.Date()`"
+output: bookdown::bookdown_site
+description: Farið yfir kennsluefni í Tölfræði 3.
+documentclass: book
+link-citations: yes
+bibliography:
+- book.bib
+- packages.bib
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# Inngangur
+
+Ritið sem hér fylgir á eftir er yfirlit yfir kennsluefni úr Tölfræði 2 fyrir BS nema í Sálfræði við Háskóla Íslands. 
+
+Í þessari fyrstu útgáfu er fjallað um aðhvarfsgreiningu hlutfalla og þáttagreiningu.
+
+Vinsamlegast athugið að um er að ræða óyfirlesnar og óleiðréttar kennsluglósur sem byggðar eru á kennslubók námskeiðisins. __Villur kunna því að leynast í textanum!__
+
+Allar athugasemdir og spurningar sendist á anton.karlsson@hagstofa.is

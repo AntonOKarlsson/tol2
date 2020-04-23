@@ -1,0 +1,313 @@
+---
+output:
+  word_document: default
+  html_document: default
+---
+# Mann-Whitney Wilcoxon próf
+
+## Inngangur
+
+Aðferðir við greiningu á samfelldum breytum falla í grófum dráttum í tvo flokka eftir því hvort settar eru fram forsendur um dreifingu gagnanna eða ekki. Þegar um er að ræða ræða aðferðir sem byggja á forsendum um dreifingu gagnanna þá eru þær kallaða stikaaðferðir (parametric methods) af því að við reynum að meta stikana sem gögnin benda til þess að séu til staðar í þýði. Dæmi um stika eru meðaltal og staðalfrávik - sem eru stikarnir sem lýsa normaldreifingu. Allar algengar stikaaðferðir byggja á því að gögnin fylgi normaldreifingu og að dreifing gagnanna (spread þeirra) sé eins milli hópa eða yfir spönn þeirra gagna sem verið er að skoða.
+
+Forsendan um normaldreifingu: 
+
+* dreifing úrtaksmeðaltala sé nokkurn veginn normal 
+* þetta er uppfyllt þegar normaldreifing er til staðar í þýðinu eða þýðunum sem við erum að draga úrtak úr. 
+
+Hefðbundin ályktunartölfræðipróf eru traust hvað varðar frávik frá normaldreifingu **til dæmis t-próf og ANOVA**
+
+> Traust (robust) tölfræðipróf eru þau sem henta vel fyrir útreikninga fyrir ýmiskonar líkindadreifingar - sérstaklega þær sem eru ekki normal, til dæmis vegna útgilda í dreifingu gagnanna. Tölfræðipróf er traust ef við náum að halda í skefjum líkindum þess að finna mun í úrtaki sem ekki er til staðar í þýði. Með öðrum orðum, villa af tegund 1 er haldið í skefjum. Dags daglega merkir þetta að með traustum aðferðum munu smávægileg frávik frá normaldreifingu hafa afar lítil áhrif á ályktunartökuna (inference) - sérstaklega þegar við eum með nógu stór úrtök. 
+
+> Ágætt er að rifja upp villu af tegund 1 og villu af tegund 2. Villa af tegund 1 er að álykta um eitthvað sem ekki er raunverulega til staðar (staðfesta almenna skoðun með röngum upplýsingum). Villa af tegund 2 er að ranglega álykta að eitthvað sé ekki til staðar þegar það er í raun ekki til staðar (andmæla almennri skoðun á grunni rangra upplýsinga.) 
+
+Hins vegar er vandinn þegar í ljós kemur (til dæmis út frá myndrænni skoðun gagnanna) að við erum langt frá normaldreifingu í úrtakinu og sérstaklega þegar um er að ræða fáar mælingar. Eitt af því sem er þá hægt að gera er að beita ályktunartölfræði sem ekki veltur á stikum, það er sikalaust próf (nonparametric tests). Algengt stikalaust próf er Wilcoxon Mann Whitney U prófið.
+
+## Wilcoxon Mann Whitney U prófið
+
+### Stikalaus próf (nonparametric tests)
+
+Stikalausar aðferðir koma í staðinn fyrir t-próf og dreifigreiningu þegar normaldreifingarforsendu prófanna er ekki mætt eða um er að ræða mjög smá úrtök þar sem ekki er hægt að leggja mat á dreifingu gagnanna með viðunandi öryggi.
+
+*When distributions are strongly skewed, we often prefer the median to the mean as a measure of center. In simplest form, the hypotheses for rank tests just replace the mean by the median.*
+
+Sem marktektarpóf þá hafa raðsummupróf nánast eins mikil afköst og t-próf til að að finna raunverulegan mun milli hópa þegar úrtök eru stór - jafnvel fyrir gögn sem dreifast í samræmi við forsendur t-prófa. Það er helst þegar unnið er með samanburð milli tveggja hópa sem eru með mjög ólíka dreifingu sem raðsummuprófið getur orðið ótraust.
+
+> Afköst (power): Afköst (power) tölfræðiprófs segja til um líkurnar á því að hafna núlltilgátu réttilega (í öðrum úrtökum úr sama þýði, miðað við það að endurtaka rannsóknina á nákvæmlega sama hátt og hún var framkvæmd).
+
+Raðsummuaðferðir eru fríar frá forsendum, sem er klárlega kostur, en óskostur þeirra er að þær eru fyrst og fremst nytsamlegar til að prófa tilgátur en hins vegar fæst ekkert gott stikamat úr niðurstöðum prófsins - til dæmis fæst ekkert mat á muninum milli hópanna þegar raðsummupróf eru notuð, eitthvað sem er auðvelt að fá fram með notkun t-prófs. Til þess að geta reiknað öryggisbil fyrir raðsummuaðferðir þarf að gefa sér enn fleiri forsendur sem eru strangari.
+
+Yfirleitt vill maður frekar nota stikaaðferðir - en þegar við erum að vinna með mjög skekkt úrtök þá eiga stikalaus próf hiklaust rétt á sér. Fyrir lítil úrtök er Wilcoxn Mann Whitney prófið oft hentugri aðferð en t-próf. Þó ber að hafa í huga að aðrar stikalausar aðferðir virka ekki í mjög, mjög smáum úrtökum.
+
+
+Stikalaus próf gera engar kröfur um ákveðna dreifingu. 
+
+Í prófum á borð við Wicoxon Mann Whitney U, þá er fyrsta skrefið að umbreyta gögnunum sem er unnið með. Það er, ekki er unnið með raunverulegu mælingarnar heldur er unnið með raðgildi gagnanna. Raðgildi er þegar búið er að raða gildum gagnasafnsins í stærðarröð og setja gildi fyrir hvar í röðinni hvert gildi fellur. Dæmi um slíkt má sjá í töflu \@ref(tab:radgildi).
+
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, radgildi}
+
+library(foreign)
+library(psych)
+library(xtable)
+library(kableExtra)
+library(tidyverse)
+
+tafla = data.frame(Gildi = c(10, 20, 25, 50, 70, 74), 'Raðgildi'=c(6,5,4,3,2,1))
+
+rownames(tafla) = c()
+
+#kable(tafla, "html") %>%
+#  kable_styling(full_width = F)
+
+tabbl1 = knitr::kable(tafla
+             , digits = 0
+             , caption = "Raungildi og samsvarandi raðgildi."
+             , )
+
+kable_styling(tabbl1, "striped", position = "left", full_width = F)
+
+```
+
+
+### Raðsummuprófið
+
+Eitt algengasta stikalausa prófið er Wilcoxon raðsummuprófið. Sem er sambærilegt við Mann Whitney U prófið. Frank Wilcoxon birti prófið fyrst árið 1945. 
+
+Prófið byggir á þeirri meginhugmynd að raða gildum í stærðarröð innan þeirra hópa sem verið er að skoða. Næst eru raðsummur reiknaðar fyrir hvorn hóp fyrir sig með því að leggja saman öll raðgildi hópsins. Núlltilgátan er að hóparnir tveir komi úr sama þýðinu þannig að allur mismunur raðsummanna milli hópanna komi til vegna úrtaksvillu.
+
+Meginhugmynd prófsins er að horfa aðeins á staðsetningu mæligildanna í þessum raðaða lista. Þess vegna þarf að skipta út raunverulegu gildunum í gagnasafninu fyrir raðgildin.
+
+Raðgildi innheldur aðeins upplýsingar um röðun gildanna - ekkert annað. Búið er að hreinsa aðrar upplýsingar um mæligildin úr safninu þegar búið er að umbreyta þeim í raðgildi. Þess vegna þegar unnið er með raðgildi þá má líta hjá því að gögnin uppfylla ekki forsendur um normaldreifingu.  
+
+Til þess að búa til raðgildi er gögnunum raðað í hækkandi stærðarröð (frá hinu minnsta til hins stærsta) og hverju gildi úthlutað raðtala, þannig að lægsta gildi gagnanna fær raðgildið 1, næsta fær 2 og svo koll af kolli.
+
+Wilcoxon raðsummuprófið 
+1. Gildum raðað í stærðarröð eftir hópum
+2. Raðsumma reiknuð í hvorum hópi fyrir sig
+3. Raðsummurnar bornar saman
+4. Prófgildið borið saman við vendigildi
+
+Í bókinni er unnið með átta mælingar - þegar um er að ræða raðsummu átta mælinga þá er heildarraðsumman alltaf 36. 
+
+Raðsumman fyrir american league er 25 en 11 fyrir national league. 
+
+Formlega séð er Wilcoxon prófið gert á eftirfarandi máta:
+
+Velja SRS af stærðinni n1 úr ákveðnu þýði og svo óháð SRS af stærðinni n2 úr öðru þýði - í heildina N fjöldi mælinga, N = n1+n2. Raðaðu öllum mælingum í stærðarröð. Summan W fyrir raðgildi fyrra úrtaksins er Wilcoxon raðsumman. Ef bæði þýðin hafa sömu samfelldu dreifinguna þá hefur W meðaltalið:  
+
+$\mu_{w} = \frac{n_1(N+1)}{2}$
+
+og staðalfrávikið;
+
+$\sigma_{w} = \sqrt{\frac{n_{1}+n_{2}(N+1)}{12}}$
+
+Wilcoxon raðsummuprófið hafnar þeirri tilgátu að þýðin tvö hafi sömu dreifinguna þegar raðsumman W er langt frá meðaltali sínu. Þetta próf er einnig kallað Mann-Whitney prófið.  
+
+Fyrir dæmið í bókinni er núlltilgátan: 
+
+* fjöldi hitta í american league er það sama og í national league 
+
+Aðaltilgátan er: 
+
+* fjöldi hitta í american league er hærra en í national league 
+
+Í dæminu er meðaltal hitta í american league um tveimur staðalfrávikum hærra en meðaltalið (25 - 18 = 7), tvö staðalfrávik eru einmitt um 7.  
+
+### Normal nálgun
+
+Raðsumman nálgast normaldreifingu eftir því sem úrtakið stækkar. Þá er hægt að búa til z-gildi með því að staðla W. Þá er hægt að nota hefðbundna normalútreikninga til að finna p-gildi fyrir W-gildið. Þar sem W tekur aðeins heiltölugildi þá bætir continuity correction nákvæmni the approximation.  
+
+#### Samfelluleiðrétting
+
+* henni er semsagt beitt þegar við ætlum að nota samfellda dreifingu (eins og normal dreifinguna) fyrir gögn sem eru rofin (eins og til dæmis binomial dreifinguna).  
+* hún virkar þannig að gengið er út frá því að talan 25 nái yfir rófið frá 24,5 - 25,5 og þá væntanlega að talan 26 nái yfir rófið frá 25,5 - 26,5 og svo koll af kolli. Með þessum hætti getum við reynt að nálgast samfellda dreifingu með rofnum breytum.  
+
+### Tilgátuprófun raðsummuprófins
+
+Núlltilgátan er að dreifing hitta í leik sé hin sama í deildunum tveimur. Aðaltilgátan er að það séu fleiri hit í hverjum leik í American League heldur en í national league. 
+Ef við erum með normaldreifingu eða rosa stórt úrtak þá getum við notað t-próf. 
+
+Ef hægt er að uppfylla þá forsendu að bæði þýðin sem verið er að skoða hafi sama dreifingu af sömu lögun og spread, þá er Wilcoxon prófið að prófa mun á miðgildum tveggja hópa. Þannig að ef líkindadreifing beggja deildanna í dæminu litu námkvæmlega eins út, nema önnur væri hreyfð meira til vinstri eða hægri - þá væri hægt að líta á það að um væri að ræða nokkurskonar t-próf fyrir miðgildi. Þetta er hins vegar ströng forsenda sem er afar sjaldan uppfyllt. 
+
+Wilcoxon prófið má einnig nota á mun almennarri máta - þá er: 
+
+* núlltilgátan: Dreifingar hópanna tveggja á fulgibreytunni breytunni hin sama
+* aðaltilgátan: Dreifing annars hópsins inniheldur gildi sem eru kerfisbundið stærri.  
+
+### Jafnhá gildi í gagnasafninu
+
+Eftir sem áður er öllum gildunum raðað í stærðarröð en þau sem eru með sama hrágildið fá meðaltalið af raðgildunum. Í bókinni er tekið dæmi um þar sem fimmta og sjötta gildinu (sem er sama gildið; 20) er gefið raðgildið 5,5, sem er meðtaltalið af 5 og 6. 
+
+Jafnhá gildi skapa smá vesen af því að þá þarf að aðlaga staðalfráviksútreikninga og excact dreifingin fyrir Wilcoxon raðsummuna W breytist líka. En sem betur fer er þetta allt saman leiðrétt í þartilgerðum hugbúnaði! 
+
+### Dæmi
+
+Í töflu \@ref(tab:hofundatafla) má sjá einkunnir sjö bóka eftir J.R.R. Tolkien og sjö fyrstu Harry Potter bókanna eftir J.K. Rowling af vefnum Goodreads. 
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, hofundatafla}
+
+hof = data.frame(Rowling=c(4.47,4.42,4.55,4.56,4.49,4.57,4.62)
+           ,Tolkien=c(4.27,4.36,4.44,4.5,3.92,3.97,3.98))
+
+long = data.frame(eink=(rbind(cbind(hof$Rowling),cbind(hof$Tolkien))))
+long$hof = NULL
+long$hof[as.numeric(row.names(long))<8] = "Rowling"
+long$hof[as.numeric(row.names(long))>7] = "Tolkien"
+
+long = long[order(long$eink),]
+long$rod = 1:14
+
+rownames(long) = c()
+
+tabbl2 = knitr::kable(long[c(1,2,3)]
+             , col.names = c("Einkunn","Höfundur","Raðgildi")
+             , digits = 2
+             , caption = "Raungildi og samsvarandi raðgildi fyrir einkunnir af Goodreads.")
+
+kable_styling(tabbl2, "striped", position = "left", full_width = F)
+
+
+```
+
+Nú getum við reiknað meðaltal og staðalfrávik.
+
+$\mu_{w} = \frac{7(14+1)}{2}$
+$\mu_{w} = \frac{105}{2}$
+$\mu_{w} = 52.5$
+
+$\sigma_{w} = \sqrt{\frac{n_{1}+n_{2}(N+1)}{12}}$
+$\sigma_{w} = \sqrt{\frac{7+7(14+1)}{12}}$
+$\sigma_{w} = \sqrt{\frac{210}{12}}$
+$\sigma_{w} = \sqrt{17.5}$
+$\sigma_{w} = 4.18$
+
+Eins og sjá má á mynd \@ref(fig:stoplarit1) þá víkur dreifingin nokkuð frá normaldreifingu og að sama skapi er um að ræða litla hópa - eða öllu heldur fáar mælingar. Eins og við höfum áður rætt þá eru þetta kjöraðstæður til að nota Wilcoxon raðsummuprófið.
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, stoplarit1, fig.cap = "Normal kúrva og dreifing höfundaeinkunna"}
+
+hist(long$eink, prob=TRUE, 
+     xlab="Bókaeinkunn", 
+     main="Normal kúrva yfir stöplariti")
+curve(dnorm(x, mean=mean(long$eink), sd=sd(long$eink)), 
+      col="darkblue", lwd=2, add=TRUE, yaxt="n")
+
+```
+
+Hér fyrir neðan sjáum við niðurstöður Wilcoxon prófsins úr R. Eins og sjá má er til staðar tölfræðilega marktækur munur á einkunnum höfundanna og á grunni þessara niðurstaðna er hægt að álykta sem svo að bækur J.K. Rowling um galdrastrákinn Harry Potter séu almenn vinsælli eða betur liðnar af lesendum heldur en bókaflokkur Tolkiens um Miðgarð (*Middle Earth*).
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+
+wilcox.test(eink~hof, exact = F, paired=F, alternative = "g", data=long)
+
+```
+
+#### Munurinn á prófgildum Wilcoxon og Mann Whitney U
+
+Samkvæmt niðurstöðum dæmisins er W gildið (tölugildi prófsins) 45. Samkvæmt formúlunni sem er bókinni hefði raðsumman átt að vera 73, en það er samanlögð raðsumma allra bóka J.K. Rowling. Þetta kemur til vegna þess að í R (og líka í JASP) þá er raðsummugildi prófsins reiknað á sama hátt og prófgildi Mann-Whitney U er reiknað.
+
+Þetta kemur fram í hjálpartexta R um Wilcoxon prófið í R: 
+
+>"The literature is not unanimous about the definitions of the Wilcoxon rank sum and Mann-Whitney tests. The two most common definitions correspond to the sum of the ranks of the first sample with the minimum value subtracted or not: R subtracts and S-PLUS does not, giving a value which is larger by m(m+1)/2 for a first sample of size m. (It seems Wilcoxon's original paper used the unadjusted sum of the ranks but subsequent tables subtracted the minimum.)" 
+
+Í töflu \@ref(tab:MWUreikn) er dæmi um hvernig hægt er að reikna U gildi fyrir hvorn hóp fyrir sig. Þá er talið fyrir hverja röð töflunnar hversu margar mælingar frá hinum hópnum eru fyrir neðan röðina hjá þeirri mælingu sem er í röðinni. Þannig eru 7 Tolkien bækur fyrir neðan fyrstu fjórar raðir töflunnar og því fá þær allar gildið 7. Í fimmtu röð töflunnar kemur fyrsta Tolkien bókin og fyrir neðan hana eru þrjár Rowling bækur. Svona gengur þetta niður alla töfluna. Svo eru öll þessi gildi summuð upp og þannig kemur út Mann-Whitney U gildið, sem er táknað með W í niðurstöðu prófins í R og JASP.
+
+```{r, echo = FALSE, warning=FALSE, message=FALSE, MWUreikn}
+
+long = long[order(long$eink, decreasing = TRUE),]
+
+long$r_u = c(7,7,7,7,7,NA,6,NA,NA,4,NA,NA,NA,NA)
+long$t_u = c(NA,NA,NA,NA,NA,3,NA,1,1,NA,0,0,0,0)
+
+tabbl2 = knitr::kable(long[c(1,2,3,4,5)]
+             , col.names = c("Einkunn","Höfundur","Raðgildi","U-gildi Rowling","U-gildi Tolkien")
+             , digits = 2
+             , caption = "Raungildi og samsvarandi raðgildi fyrir einkunnir af Goodreads.")
+
+kable_styling(tabbl2, "striped", position = "left", full_width = F)
+
+```
+
+Þessi aðferð við að reikna gildi Wilcoxon Mann-Whitney raðsummuprófsins virkar ágætlega fyrir mjög smá gagnasöfn og til að fá tilfinningu fyrir því hvernig aðferðin virkar en fyrir stærri gagnasöfn er skynsamlegra að nota hraðvirkari leiðir.
+
+Fyrir U-gildið í hópi 1 myndum við nota: $U_{1}=\sum_{R_1}-\frac{n_1(n_1+1)}{2}$
+
+eða $U_{1}=73-\frac{7(7+1)}{2}$
+$U_{1}=73-28$
+$U_{1}=45$
+
+Fyrir U-gildið í hópi 2 myndum við nota: $U_{2}=\sum_{R_2}-\frac{n_2(n_2+1)}{2}$
+
+eða $U_{2}=32-\frac{72(7+1)}{2}$
+$U_{2}=32-28$
+$U_{2}=4$
+
+Eins og sjá má þá gefur þessi leið nákvæmlega sömu niðurstöðu og fyrri aðferðin þar sem talið var hversu margar mælingar úr andstæðum hópi voru fyrir neðan viðkomandi mælingu.
+
+#### Mismunandi p-gildi
+
+Við sjáum að p-gildið sem við fáum úr JASP er ekki alveg það sama og er sýnt í bókinni. Í bókinni er miðað við aproximate p-gildi en JASP (og flestallur tölfræðihugbúnaður) gefur exact p-gildi út frá viðeigandi töflum. Þær eru hins vegar það stórar að bókarhöfundum þótti ekki eðlilegt að troða þeim öllum í bókina.
+
+## Aðrar aðferðir
+
+Mikilvægt er að hafa í huga að stikalaus próf eru ekki eina lausnin á mjög skekktum gögnum.
+
+### Útlagar í gögnunum
+
+Kannski víkur dreifingin frá normaldreifingu vegna útgidli (útlagar). Hvað er hægt að gera við útgildi? 
+
+Útgildi: Gildi sem eru langt frá meginhluta dreifingarinnar.
+
+* Í sumum tilvikum er hægt að eyða útlögum úr úrtakinu þar sem þeir tilheyra ekki þýði rannsóknarinnar (biluð mælitæki, gamall maður í úrtaki ungs fóks etc.)  
+* Tilreiknun eða breyting á gildi útlaga til að færa þá nær meginhluta dreifingarinnar. En þá þarf alltaf að gera næmnigreiningu 
+
+### Umbreyting gagna 
+
+Stundum er hægt að umbreyta gögnum til að færa þau nær normaldreifingu 
+
+Klassískt dæmi eru laun. Í hefðbundnu þýði er alvalanalegt að laun séu jákvætt skekkt (það er, fá mjög há gildi). Þess vegna er algengt að taka lógarithma af launum þar sem það togar inn hæstu gildin og þéttir dreifinguna.
+
+### Aðrar dreifingar
+
+Hægt er að nota aðrar dreifingar heldur en normaldreifinguna sem líkan fyrir dreifingu viðkomandi breytu í þýðinu. Þá eru til inference procedure (væntanlega annarskonar ályktunartölfræðipróf) sem byggja á annarskonar dreifingum heldur en t-próf, það er non-normal procedures. Í bókinni er meðal annars minnst á: 
+* Weibull dreifinguna 
+* Exponential 
+* Poisson 
+
+### Bootstrap eða permutation próf
+
+Bootstrap og permutation próf þarfnast ekki normaldreifingar né neinnar annar sérstakrar dreifingar. Bókarhöfundar mæla með þessum aðferðum nema úrtakið sé þeim mun smærra.
+
+Fjallað er um endurúrtökur (bootstraping í kafla 16 sem hægt er að finna á vefnum). Þess má einnig geta að þar er sýnt hvernig hægt er að beita slíkum aðferðum með notkun tölfræðihugbúnaðarins R. 
+
+Forsenda: Að um er að ræða handahófskennt úrtak úr þýði. Hins vegar skiptir ekki máli hvort um er að ræða sérstaklega stór úrtök (þó það sé jafnan betra!) eða normaldreifingu. 
+
+Aðferðin sem slík er einföld - en kann að kalla á nokkuð öflugar tölvur. Hún gengur fyrir sig í eftirfarandi skrefum: 
+
+* Endurtekin úrtök valin úr upprunalega úrtakinu, with replacement. Hvert nýtt úrtak á að vera af sömu stærð og upprunalega úrtakið.
+* Endurúrtökudreifingin lýsir því hvernig stikinn dreifist yfir ítrekuð úrtök. Þannig er hægt að búa til úrtakadreifinguna. 
+
+Bootstrap er prýðilegt verkfæri til að meta dreifni (sérstaklega fyrir flókin gögn) og svo einnig til að reikna öryggisbil og jafnvel mun á hópum.  
+Svo er hægt að nota permutation test til að kanna marktækan mun - eins og með Wilcoxon.   
+
+Resampling próf virka á sama hátt og önnur marktektarpróf.
+
+* Velja stika sem þú vilt skoða
+* Búa til úrtakadreifingu sem fyrir stikann ef ekki væri um að ræða áhrifin í þýðinu 
+* Finna stikann í úrtakadreifingunni. 
+    * Ef gildið er í meginhluta dreifingarinnar þá gæti hann allt eins komið fram vegna handahófi - það er, svona áhrif eru það algeng að það er ekkert sérstaklega skrýtið að þau komi fram. 
+    * Gildi sem lendir hins vegar í jöðrum dreifingarinnar myndu hins vegar sjaldan koma fram að handahófi og er því til marks um að líklega er munurinn einnig til staðar í þýðinu.  
+
+Lág p-gildi er rök með aðaltilgátunni og á móti núlltilgátunni. 
+
+Til að reikna permutation próf 
+
+* Velja mælingar úr gagnasafninu af handahófi til að vera samanburðarhópur - aðrir eru control group. 
+    * Notað er SRS án replacement. 
+    * Kallast permutation resample. 
+* Stærðin á þessum úrtökum fer eftir því hversu margir eru í þessum hópum í raunverulegu gögnum rannsóknarinnar. 
+* Reikna meðal skorið í hvorum hópi fyrir sig. Munurinn á meðaltali hópanna er stikinn sem við höfum áhuga á. 
+* Endurtaka þetta (resampling og útreikninga á stikanum) í hundruði skipta. 
+    * Dreifing stikans úr þessum endurúrtökum er mat á úrtakadreifingunni undir núlltilgátunni (það er að enginn munur sé milli hópanna í raunverulega úrtakinu). 
+    * PERMUTATION DISTRIBUTION. 
+* Þá er stikinn eins og hann var reiknaður út í úrtakinu skoðaður og staðsetning hans á permutation distribution fundin til að finna p-gildi stikans.  
+

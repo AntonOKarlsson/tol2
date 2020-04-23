@@ -1,0 +1,512 @@
+, caption = "Fylgnifylki fyrir leikmenn Boston Celtics frá 1974.")
+cor.plot(gogn2)
+pairs.panels(gogn2)
+fit.1$loadings
+fit.1$correlation
+fit.1$factors
+fit.1$loadings
+fit.0 <- factanal(gogn2, factors=3, method = "mle")
+fit.0
+fit.0$loadings
+fit.0$loadings[1:9]
+as.data.frame(fit.0$loadings)
+fit.0$loadings[1:11]
+fit.0$loadings[1:3,1:11]
+fit.0$loadings[1:11,1:3]
+help(factanal)
+lambda = fit.0$loadings[1:11,1:3]
+fit.0
+fit.0$correlation
+fit.0$factors
+fit.0$rotmat
+fit.0 <- factanal(gogn2, factors=3, method = "mle", rotation = NULL)
+fit.0 <- factanal(gogn2, factors=3, method = "mle", rotation = 'none')
+fit.0$rotmat
+lambda = fit.0$loadings[1:11,1:3]
+lambda
+fit.0$loadings
+fit.0$uniquenesses
+as.matrix(fit.0$uniquenesses)
+diag(fit.0$uniquenesses)
+d_psi= diag(fit.0$uniquenesses)
+lambda*t(lambda)
+lambda
+t(lambda)
+as.matrix(lambda)
+as.matrix(lambda)*t(as.matrix(lambda))
+t(as.matrix(lambda))
+as.matrix(lambda)%*%t(as.matrix(lambda))
+(as.matrix(lambda)%*%t(as.matrix(lambda)))+as.matrix(d_psi)
+pop_P = (as.matrix(lambda)%*%t(as.matrix(lambda)))+as.matrix(d_psi)
+fit.0 <- factanal(gogn2, factors=3, method = "mle", rotation = 'none')
+d_psi= diag(fit.0$uniquenesses)
+lambda = fit.0$loadings[1:11,1:3]
+cor.table <- xtable(lambda)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Lambda fylki")
+snuidlambda = t(lambda)
+cor.table <- xtable(d_psi)
+knitr::kable(cor.table
+, digits = 2
+, caption = "D-psi fylki")
+pop_P = (as.matrix(lambda)%*%t(as.matrix(lambda)))+as.matrix(d_psi)
+cor.table <- xtable(d_psi)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki þýðisins út frá niðurstöðum Þáttagreiningar")
+snuidlambda = t(lambda)
+cor.table <- xtable(d_psi)
+knitr::kable(cor.table
+, digits = 2
+, caption = "D-psi fylki")
+fit.0 <- factanal(gogn2, factors=3, method = "mle", rotation = 'none')
+d_psi= diag(fit.0$uniquenesses)
+lambda = fit.0$loadings[1:11,1:3]
+cor.table <- xtable(lambda)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Lambda fylki")
+snuidlambda = t(lambda)
+cor.table <- xtable(snuidlambda)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Lambda fylki")
+cor.table <- xtable(d_psi)
+knitr::kable(cor.table
+, digits = 2
+, caption = "D-psi fylki")
+pop_P = (as.matrix(lambda)%*%t(as.matrix(lambda)))+as.matrix(d_psi)
+cor.table <- xtable(pop_P)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki þýðisins út frá niðurstöðum Þáttagreiningar")
+upper.tri(pop_P)
+pop_P[upper.tri(pop_P),]
+pop_P[upper.tri(pop_P)]
+as.matrix(pop_P[upper.tri(pop_P)])
+tafla
+tafla = cor(gogn2, use="pairwise.complete.obs")
+tafla
+library(tidyverse)
+gogn = read.csv("celtics.csv")
+gogn = gogn %>% filter(G>50&From>1974) %>%
+select(c(-G,-AST,-TRB,-Rk,-Player,-From,-To,-Yrs,-PTS,-MP,-X3P,-X3PA,-FG,-FGA,-FT,-FTA,-ORB))
+names(gogn) = c("stol","vskot","tapb","vill","sknyt","sknyt3","sknyV","min","stig","frak","stods")
+gogn2 <- gogn[complete.cases(gogn),]
+tafla = cor(gogn2, use="pairwise.complete.obs")
+cor.table <- xtable(tafla)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki fyrir leikmenn Boston Celtics frá 1974.")
+tafla = cor(gogn2, use="pairwise.complete.obs")
+tafla[lower.tri(tafla)]
+pop_P[upper.tri(pop_P)]
+tafla[lower.tri(tafla)]
+pop_P[upper.tri(pop_P)]
+tafla[lower.tri(tafla,diag = TRUE)]
+as.matrix(pop_P[upper.tri(pop_P)],
+tafla[lower.tri(tafla,diag = TRUE)])
+View(tafla)
+as.matrix(pop_P[upper.tri(pop_P)],
+tafla[lower.tri(tafla,diag = TRUE)], 11,11)
+tafla[lower.tri(tafla,diag = TRUE)]
+upper.triangle(pop_P)
+library(Matrix)
+tril(pop_P)
+triu(tafla)
+tril(pop_P)
+triu(tafla)+
+tril(pop_P)
+tvofoldcorr= triu(tafla)+tril(pop_P)
+library(Matrix)
+tvofoldcorr= triu(tafla)+tril(pop_P)
+cor.table <- xtable(tvofoldcorr)
+tvofoldcorr= as.data.frame(triu(tafla)+tril(pop_P))
+tvofoldcorr= as.matrix(triu(tafla)+tril(pop_P))
+tvofoldcorr
+help(tril)
+diag(tvofoldcorr)
+diag(tvofoldcorr) = 1
+tvofoldcorr
+library(tidyverse)
+gogn = read.csv("celtics.csv")
+gogn = gogn %>% filter(G>50&From>1974) %>%
+select(c(-G,-AST,-TRB,-Rk,-Player,-From,-To,-Yrs,-PTS,-MP,-X3P,-X3PA,-FG,-FGA,-FT,-FTA,-ORB))
+names(gogn) = c("stol","vskot","tapb","vill","sknyt","sknyt3","sknyV","min","stig","frak","stods")
+gogn2 <- gogn[complete.cases(gogn),]
+write.csv(gogn2, "C:\\Users\\Lenovo\\Google Drive\\kennsla\\2019\\Tölfræði III\\celtics.csv")
+write.csv2(gogn2, "C:\\Users\\Lenovo\\Google Drive\\kennsla\\2019\\Tölfræði III\\celtics.csv", row.names = F)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+library(foreign)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+write.csv2(gogn2, "C:\\Users\\Lenovo\\Google Drive\\kennsla\\2019\\Tölfræði III\\bjor.csv", row.names = F)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+scree(gogn2[,1:7])
+library(psych)
+scree(gogn2[,1:7])
+library(psych)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+scree(gogn2[,1:7])
+fa.parallel(gogn2[,1:7])
+fa.parallel(gogn2[,1:7], fa = TRUE)
+fa.parallel(gogn2[,1:7], fa = "fa")
+fa.parallel(gogn2[,1:7], fa = "fa")
+fa.parallel(gogn2[,1:7], fa = "fa", )
+library(psych)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+library(psych)
+library(foreign)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+scree(gogn2[,1:7])
+gogn2[c(1:9)]
+gogn2[c(1:7)]
+gogn2[c(1:7)]
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+plot(food.fa.none$loadings[,1],
+food.fa.none$loadings[,2],
+xlab = "Factor 1",
+ylab = "Factor 2",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "No rotation")
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Factor 1",
+ylab = "Factor 2",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "No rotation")
+abline(h = 0, v = 0)
+summary(bjor.fa.none)
+bjor.fa.none
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+bjor.fa.none
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Hagvkvæmni",
+ylab = "Bjórnsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Engin snúningur")
+abline(h = 0, v = 0)
+colnames(gogn2[c(1:7)])
+plot(bjor.fa.varimax$loadings[,1],
+bjor.fa.varimax$loadings[,2],
+xlab = "Factor 1",
+ylab = "Factor 2",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Varimax rotation")
+text(bjor.fa.varimax$loadings[,1]-0.08,
+bjor.fa.varimax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Hagvkvæmni",
+ylab = "Bjórnsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Engin snúningur")
+abline(h = 0, v = 0)
+plot(bjor.fa.varimax$loadings[,1],
+bjor.fa.varimax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornréttur varimax snúningur")
+text(bjor.fa.varimax$loadings[,1]-0.08,
+bjor.fa.varimax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+bjor.fa.none
+bjor.fa.varimax
+bjor.fa.none[1]
+bjor.fa.none$loadings
+bjor.fa.varimax$loadings
+as.data.frame(bjor.fa.none$loadings)
+as.data.frame(unlist(bjor.fa.none$loadings))
+as.matrix(bjor.fa.none$loadings)
+as.data.frame(as.matrix(bjor.fa.none$loadings))
+as.tibble(as.matrix(bjor.fa.none$loadings))
+as.matrix(bjor.fa.none$loadings)
+as.matrix(bjor.fa.none$loadings)
+nonloadings =as.matrix(bjor.fa.none$loadings)
+nonloadings =as.vector(bjor.fa.none$loadings)
+nonloadings
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+cbind(nonloadings, hornrloadings)
+cbind(t(nonloadings), t(hornrloadings))
+cbind(nonloadings, hornrloadings)
+hledslusamanburdur = cbind(nonloadings, hornrloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+hledslusamanburdur
+names(hledslusamanburdur) = c("Osnuin","Hornrett", "Breyta")
+hledslusamanburdur
+hledslusamanburdur[c(3,1,2)]
+hledslusamanburdur = hledslusamanburdur[c(3,1,2)]
+hledslusamanburdur
+hledslusamanburdur[,1:7]
+hledslusamanburdur[c(1:7),]
+hledslusamanburdur[c(8:14),]
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+hledslusamanburdur[c(1:7),]
+cor.table <- xtable(hledslusamanburdur[c(1:7),])
+plot(bjor.fa.promax$loadings[,1],
+bjor.fa.promax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornréttur promax snúningur")
+text(bjor.fa.promax$loadings[,1]-0.08,
+bjor.fa.promax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Hagvkvæmni",
+ylab = "Bjórnsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Engin snúningur")
+abline(h = 0, v = 0)
+plot(bjor.fa.varimax$loadings[,1],
+bjor.fa.varimax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornréttur varimax snúningur")
+text(bjor.fa.varimax$loadings[,1]-0.08,
+bjor.fa.varimax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+hledslusamanburdur[c(1:7),]
+hledslusamanburdur[c(8:14),]
+cor.table <- xtable(hledslusamanburdur[c(1:7),])
+library(foreign)
+library(psych)
+library(semPlot)
+library(GPArotation)
+library(xtable)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+#ath missing values
+tafla = cor(gogn[,1:7], use="pairwise.complete.obs")
+cor.table <- xtable(tafla)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki fyrir mat á mikilvægi eiginleika bjórs þegar ákvörðun er tekin um kaup.")
+gogn2 <- gogn[complete.cases(gogn),]
+fit.1 <- factanal(gogn2[,1:7],factors=2,rotation="quartimin", method = "mle")
+semPaths(fit.1, rotation=1, "std", "est",reorder = T, edge.label.cex = 1.2)
+library(tidyverse)
+gogn = read.csv("celtics.csv")
+gogn = gogn %>% filter(G>50&From>1974) %>%
+select(c(-G,-AST,-TRB,-Rk,-Player,-From,-To,-Yrs,-PTS,-MP,-X3P,-X3PA,-FG,-FGA,-FT,-FTA,-ORB))
+names(gogn) = c("stol","vskot","tapb","vill","sknyt","sknyt3","sknyV","min","stig","frak","stods")
+gogn2 <- gogn[complete.cases(gogn),]
+tafla = cor(gogn2, use="pairwise.complete.obs")
+cor.table <- xtable(tafla)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki fyrir leikmenn Boston Celtics frá 1974.")
+fit.0 <- factanal(gogn2, factors=3, method = "mle", rotation = 'none')
+d_psi= diag(fit.0$uniquenesses)
+lambda = fit.0$loadings[1:11,1:3]
+cor.table <- xtable(lambda)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Lambda fylki")
+snuidlambda = t(lambda)
+cor.table <- xtable(snuidlambda)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Lambda fylki")
+cor.table <- xtable(d_psi)
+knitr::kable(cor.table
+, digits = 2
+, caption = "D-psi fylki")
+pop_P = (as.matrix(lambda)%*%t(as.matrix(lambda)))+as.matrix(d_psi)
+cor.table <- xtable(pop_P)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Fylgnifylki þýðisins út frá niðurstöðum þáttagreiningar")
+library(Matrix)
+tvofoldcorr= as.matrix(triu(tafla)+tril(pop_P))
+diag(tvofoldcorr) = 1
+cor.table <- xtable(tvofoldcorr)
+knitr::kable(cor.table
+, digits = 2
+, caption = "Tvö fylgnifylki; yfir skálínunni er upprunalega fylgnifylkið, undir skálínunni er fylgnifylgi út frá þáttagreiningunni")
+library(psych)
+library(foreign)
+gogn <- read.spss("C:\\Users\\Lenovo\\Downloads\\FactBeer.sav", to.data.frame = T)
+gogn2 <- gogn[complete.cases(gogn),]
+scree(gogn2[,1:7])
+fa.parallel(gogn2[,1:7], fa = "fa", )
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "promax")
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Hagvkvæmni",
+ylab = "Bjórnsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Engin snúningur")
+abline(h = 0, v = 0)
+plot(bjor.fa.varimax$loadings[,1],
+bjor.fa.varimax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornréttur varimax snúningur")
+text(bjor.fa.varimax$loadings[,1]-0.08,
+bjor.fa.varimax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+plot(bjor.fa.promax$loadings[,1],
+bjor.fa.promax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornskakkur promax snúningur")
+text(bjor.fa.promax$loadings[,1]-0.08,
+bjor.fa.promax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+cor.table <- xtable(hledslusamanburdur[c(1:7),])
+knitr::kable(cor.table
+, digits = 2
+, caption = "Tvö fylgnifylki; yfir skálínunni er upprunalega fylgnifylkið, undir skálínunni er fylgnifylgi út frá þáttagreiningunni")
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+cor.table <- xtable(hledslusamanburdur[c(8:14),])
+knitr::kable(cor.table
+, digits = 2
+, caption = "Samanburður á þáttaleðslum þáttarins snobb í bjórkaupum fyrir ósnúna þáttalausn, hornrétta lausn og hornskakka lausn. ")
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+cor.table <- xtable(hledslusamanburdur[c(1:7),])
+knitr::kable(cor.table
+, digits = 2
+, caption = "Samanburður á þáttaleðslum þáttarins hagkvæmni í bjórkaupum fyrir ósnúna þáttalausn, hornrétta lausn og hornskakka lausn. ")
+bjor.fa.none <- factanal(gogn2[c(1:7)], factors = 2, rotation = "none")
+bjor.fa.varimax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "varimax")
+bjor.fa.promax <- factanal(gogn2[c(1:7)], factors = 2, rotation = "oblimin")
+plot(bjor.fa.none$loadings[,1],
+bjor.fa.none$loadings[,2],
+xlab = "Hagvkvæmni",
+ylab = "Bjórnsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Engin snúningur")
+abline(h = 0, v = 0)
+plot(bjor.fa.promax$loadings[,1],
+bjor.fa.promax$loadings[,2],
+xlab = "Hagkvæmni",
+ylab = "Bjórsnobb",
+ylim = c(-1,1),
+xlim = c(-1,1),
+main = "Hornskakkur promax snúningur")
+text(bjor.fa.promax$loadings[,1]-0.08,
+bjor.fa.promax$loadings[,2]+0.08,
+colnames(gogn2[c(1:7)]),
+col="blue")
+abline(h = 0, v = 0)
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+cor.table <- xtable(hledslusamanburdur[c(1:7),])
+knitr::kable(cor.table
+, digits = 2
+, caption = "Samanburður á þáttaleðslum þáttarins hagkvæmni í bjórkaupum fyrir ósnúna þáttalausn, hornrétta lausn og hornskakka lausn. ")
+nonloadings =as.data.frame(as.vector(bjor.fa.none$loadings))
+hornrloadings =as.data.frame(as.vector(bjor.fa.varimax$loadings))
+hornsloadings =as.data.frame(as.vector(bjor.fa.promax$loadings))
+hledslusamanburdur = cbind(nonloadings, hornrloadings,hornsloadings)
+hledslusamanburdur$breytur = c("COST", "SIZE", "ALCHOLOL", "REPUTAT", "COLOR", "AROMA", "TASTE")
+names(hledslusamanburdur) = c("Osnuin","Hornrett","Hornskokk", "Breyta")
+hledslusamanburdur = hledslusamanburdur[c(4,1,2,3)]
+cor.table <- xtable(hledslusamanburdur[c(8:14),])
+knitr::kable(cor.table
+, digits = 2
+, caption = "Samanburður á þáttaleðslum þáttarins snobb í bjórkaupum fyrir ósnúna þáttalausn, hornrétta lausn og hornskakka lausn. ")
+bjor.fa.none$correlation
+bjor.fa.varimax$correlation
+bjor.fa.promax$correlation
+bjor.fa.promax$factors
+bjor.fa.promax$rotmat
+bjor.fa.none$rotmat
+bjor.fa.promax$rotmat
+bjor.fa.varimax$rotmat
+bjor.fa.varimax$loadings
+bjor.fa.promax$uniquenesses
+bjor.fa.promax$correlation
+bjor.fa.promax$STATISTIC
+bjor.fa.promax$dof
+bjor.fa.promax$converged
