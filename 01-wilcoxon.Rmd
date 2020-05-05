@@ -99,7 +99,7 @@ $\mu_{w} = \frac{n_1(N+1)}{2}$
 
 og staðalfrávikið;
 
-$\sigma_{w} = \sqrt{\frac{n_{1}+n_{2}(N+1)}{12}}$
+$\sigma_{w} = \sqrt{\frac{n_{1}n_{2}(N+1)}{12}}$
 
 Wilcoxon raðsummuprófið hafnar þeirri tilgátu að þýðin tvö hafi sömu dreifinguna þegar raðsumman W er langt frá meðaltali sínu. Þetta próf er einnig kallað Mann-Whitney prófið.  
 
